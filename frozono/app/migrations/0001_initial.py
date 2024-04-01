@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
                     "categoria",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="frozonoapp.categoria",
+                        to="app.categoria",
                     ),
                 ),
             ],
@@ -76,7 +76,7 @@ class Migration(migrations.Migration):
                     "producto",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="frozonoapp.producto",
+                        to="app.producto",
                     ),
                 ),
                 (
@@ -105,7 +105,7 @@ class Migration(migrations.Migration):
                     "producto",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="frozonoapp.producto",
+                        to="app.producto",
                     ),
                 ),
                 (
