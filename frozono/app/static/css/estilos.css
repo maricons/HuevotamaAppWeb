@@ -1,6 +1,7 @@
 .imgCarrousel{
     width: 100%;
     height: 47vw;
+    opacity: 0.3; 
 }
 .secciones{
     width: 100%;
@@ -8,6 +9,8 @@
 }
 
 .btn{
-    background-color: rgb(235, 110, 162) !important;
+    background-color: #23A6F0 !important;
     color: white;
+    border-color: #23A6F0;
 }
+
