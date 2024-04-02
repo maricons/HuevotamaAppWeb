@@ -19,6 +19,9 @@ from django.urls import path
 from app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls), #admin
-    path('', views.home, name='home'), # url pagina de inicio
+    path('admin/', admin.site.urls), # Ruta para la administración de Django
+    path('', views.home, name='home'), # Ruta para la página de inicio
+    path('contacto.html', views.contacto, name='contacto'),  # Ruta para la página de contacto
 ]
+
+
