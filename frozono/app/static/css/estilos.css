@@ -60,3 +60,10 @@
 .navbar {
     background-color: #82d1fe !important;
 }
+
+.loginForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

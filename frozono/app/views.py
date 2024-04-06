@@ -13,3 +13,9 @@ def catalogo(request):
 
 def login(request):
     return render(request, 'app/login.html', {})
+
+def productdetail(request):
+    return render(request, 'app/productdetail.html', {})
+
+def registro(request):
+    return render(request, 'app/registro.html', {})
