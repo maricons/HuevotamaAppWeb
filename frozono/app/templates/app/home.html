@@ -17,7 +17,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="{% static 'img/logo.png' %}" alt="logo" width="60">
+        <img src="{% static 'img/logo.png' %}" alt="logo" width="60" href="{% url 'home' %}">
         Frozono</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#productos">Productos</a>
+            <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#bseller">Bestsellers</a>
@@ -38,11 +38,22 @@
             <a class="nav-link" href="#resena">Rese&ntilde;a</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#formulario">Cont&aacute;ctanos
+            <a class="nav-link" href="{% url 'contacto' %}">Cont&aacute;ctanos
             </a>
           </li>
         </ul>
       </div>
+      <div class="d-flex"> <!-- Utiliza "d-flex" para alinear elementos en línea -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Regístrate</a>
+            </li>
+        </ul>
+
+    </div>
     </div>
   </nav>
   <!--Fin de Navbar-->
@@ -116,7 +127,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <footer>
-    <p>&copy; 2024 Frozono | <a href="contacto.html">Contáctanos</a></p>
+    <p>&copy; 2024 Frozono | <a href="app/contacto.html">Contáctanos</a></p>
   </footer>
 </body>
 

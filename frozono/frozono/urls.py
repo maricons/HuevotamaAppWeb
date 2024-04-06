@@ -20,8 +20,10 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls), # Ruta para la administración de Django
-    path('', views.home, name='home'), # Ruta para la página de inicio
-    path('contacto.html', views.contacto, name='contacto'),  # Ruta para la página de contacto
+    path('app/home.html', views.home, name='home'), # Ruta para la página de inicio
+    path('app/contacto.html', views.contacto, name='contacto'), # Ruta para la página de contacto
+    path('app/catalogo.html', views.catalogo, name='catalogo'), # Ruta para la página de catalogo
+    path('app/login.html', views.login, name='login'),
 ]
 
 
