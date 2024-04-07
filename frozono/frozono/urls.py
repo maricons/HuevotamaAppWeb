@@ -26,6 +26,8 @@ urlpatterns = [
     path('app/login.html', views.login, name='login'), # Ruta para la página de login
     path('app/productdetail.html', views.productdetail, name='productdetail'), # Ruta para la página de productdetail
     path('app/registro.html', views.registro, name='registro'), # Ruta para la página de productdetail
+    path('app/aboutus.html', views.aboutus, name='aboutus'), #Ruta para la página Nosotres
+
 ]
 
 

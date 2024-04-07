@@ -13,10 +13,23 @@
 </head>
 
 <body>
+  <!--Pre header-->
+  <div class="pre-header-wrapper">
+    <div class="container">
+      <div class="text-center mb-3">
+        <p class="mb-0">Envío gratuito en Valparaíso por compras sobre $20.000. ¡Aprovecha ahora!</p>
+      </div>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+  <!--Fin Pre header-->
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'img/logo.png' %}" alt="logo" width="60" href="{% url 'home' %}">
         Frozono</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,7 +39,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
@@ -35,7 +48,7 @@
             <a class="nav-link" href="#bseller">Bestsellers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#resena">Rese&ntilde;a</a>
+            <a class="nav-link" href="{% url 'aboutus' %}">Nosotros</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contacto' %}">Cont&aacute;ctanos
@@ -43,17 +56,14 @@
           </li>
         </ul>
       </div>
-      <div class="d-flex"> <!-- Utiliza "d-flex" para alinear elementos en línea -->
+      <!-- Utiliza "d-flex" para alinear elementos en línea -->
+      <div class="d-flex">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Regístrate</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+          </li>
         </ul>
-
-    </div>
+      </div>
     </div>
   </nav>
   <!--Fin de Navbar-->
@@ -61,15 +71,18 @@
   <h1>Choclo Congelado</h1>
   <div class="row">
     <div class="col-lg-6">
-        <img src="{% static 'img/CHOCLO.webp'%}" alt="choclo">
+      <img src="{% static 'img/CHOCLO.webp'%}" alt="choclo">
     </div>
     <div class="col-lg-6">
-        <h1>Choclo Congelado</h1>
-        <hr class="rounded mb-3">
-        <h2>$2990</h2>
-        <h3>Descripción:</h3>
-        <h3>Choclo congelado 500 gramos</h3>
+      <h1>Choclo Congelado</h1>
+      <hr class="rounded mb-3">
+      <h2>$2990</h2>
+      <h3>Descripción:</h3>
+      <h3>Choclo congelado 500 gramos</h3>
+      <div>
         <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+        <a href="#" class="btn btn-secondary">Comprar</a>
+      </div>
 
     </div>
 

@@ -19,3 +19,6 @@ def productdetail(request):
 
 def registro(request):
     return render(request, 'app/registro.html', {})
+
+def aboutus(request):
+    return render(request, 'app/aboutus.html', {})
