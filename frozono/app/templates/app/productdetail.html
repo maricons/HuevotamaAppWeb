@@ -67,34 +67,40 @@
     </div>
   </nav>
   <!--Fin de Navbar-->
+  <div class="container">
   <hr class="rounded mb-3">
   <h1>Choclo Congelado</h1>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-8 d-flex align-items-center justify-content-center">
       <img src="{% static 'img/CHOCLO.webp'%}" alt="choclo">
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4 d-flex flex-column align-items-start align-lg-end">
       <h1>Choclo Congelado</h1>
+      <h3>Frutos del Maipo</h3>
       <hr class="rounded mb-3">
       <h2>$2990</h2>
+      <hr>
       <h3>Descripción:</h3>
-      <h3>Choclo congelado 500 gramos</h3>
-      <div>
+      <p>Choclo congelado 500 gramos</p>
+      <div class="mt-auto">
         <a href="#" class="btn btn-primary">Agregar al Carrito</a>
         <a href="#" class="btn btn-secondary">Comprar</a>
       </div>
 
     </div>
+  </div>
+  <hr class="rounded mb-3">
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <footer>
-    <p>&copy; 2024 Frozono | <a href="{% url 'contacto' %}">Contáctanos</a></p>
-  </footer>
+
 </body>
 
+<footer>
+  <p>&copy; 2024 Frozono | <a href="app/contacto.html">Contáctanos</a></p>
+</footer>
 
 
 </html>
