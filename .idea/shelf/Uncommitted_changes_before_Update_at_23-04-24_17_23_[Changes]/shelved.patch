@@ -1,0 +1,135 @@
+Index: frozono/app/templates/app/home.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"en\">\n{% load static %}\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <link rel=\"stylesheet\" href=\"{% static 'css/estilos.css' %}\">\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n    integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">\n  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css\">\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n  <link href=\"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,537;1,537&display=swap\" rel=\"stylesheet\">\n  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200\" />\n\n\n  <title>Congelados | Frozono.cl </title>\n</head>\n\n<body>\n  <!--Pre header-->\n  <div class=\"pre-header-wrapper\">\n    <div class=\"container\">\n      <div class=\"text-center mb-3\">\n        <p class=\"mb-0\">Envío gratuito en Valparaíso por compras sobre $20.000. ¡Aprovecha ahora!</p>\n\n        <div class=\"social-icons\">\n          <a href=\"#\" class=\"social-icon\"><i class=\"fab fa-instagram\"></i></a>\n          <a href=\"#\" class=\"social-icon\"><i class=\"fab fa-facebook\"></i></a>\n\n        </div>\n      </div>\n    </div>\n  </div>\n  <!--Fin Pre header-->\n\n  <!--Navbar-->\n  <nav class=\"navbar navbar-expand-lg bg-body-tertiary\">\n    <div class=\"container-fluid\">\n      <a class=\"navbar-brand\" href=\"{% url 'home' %}\">\n        <img src=\"{% static 'img/logo.png' %}\" alt=\"logo\" width=\"60\" href=\"{% url 'home' %}\">\n        Frozono</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\"\n        aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n        <ul class=\"navbar-nav\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link active\" aria-current=\"page\" href=\"{% url 'home' %}\">Inicio</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"{% url 'catalogo' %}\">Catálogo</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#bseller\">Bestsellers</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"{% url 'aboutus' %}\">Nosotros</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"{% url 'contacto' %}\">Cont&aacute;ctanos\n            </a>\n          </li>\n        </ul>\n      </div>\n      <!-- Utiliza \"d-flex\" para alinear elementos en línea -->\n      <div class=\"d-flex\">\n        <ul class=\"navbar-nav\">\n          <li class=\"nav-item\">\n            <a id=\"abrirModal\" class=\"nav-link\">Iniciar sesión</a>\n          </li>\n        <li>\n          <a href=\"{% url 'aboutus' %}\">\n          <span class=\"material-symbols-outlined\">\n          shopping_cart\n          </span></li>\n        </a>\n      </div>\n    </div>\n  </nav>\n  <!--Fin de Navbar-->\n\n  <!--Carrusel-->\n  <div id=\"carouselMyExample\" class=\"carousel slide\" data-bs-ride=\"carousel\">\n    <!--en el carousel-inner se indica lo que se mostrará-->\n    <div class=\"carousel-inner\">\n      <!--por cada imagen necesito un item e indico cual es la primera con active-->\n      <div class=\"carousel-item active\" data-bs-interval=\"5000\">\n        <!--si quiero le indico el tipo de display class=\"d-block w-100\"-->\n        <div class=\"imgContainer\">\n          <img src=\"{% static 'img/congela3.png' %}\" class=\"imgCarrousel\" alt=\"poto\">\n        </div>\n        <!-- Agrega el texto al centro -->\n        <div class=\"container-fluid\">\n          <div class=\"carousel-caption d-flex flex-column align-items-center justify-content-center\">\n            <h1 class=\"carousel-text mb-3\">FROZONO</h1>\n            <h2 class=\"carousel-text\">CONGELADOS</h2>\n          </div>\n        </div>\n      </div>\n      <div class=\"carousel-item\" data-bs-interval=\"5000\">\n        <div class=\"imgContainer\">\n          <img src=\"{% static 'img/frip.jpg' %}\" class=\"imgCarrousel\" alt=\"...\">\n        </div>\n        <!-- Agrega el texto al centro -->\n        <div class=\"carousel-caption d-flex flex-column align-items-center justify-content-center\">\n          <h1 class=\"carousel-text mb-3\">FROZONO</h1>\n          <h2 class=\"carousel-text\">CONGELADOS</h2>\n        </div>\n      </div>\n    </div>\n    <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselMyExample\" data-bs-slide=\"prev\">\n      <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n      <span class=\"visually-hidden\">Previous</span>\n    </button>\n    <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselMyExample\" data-bs-slide=\"next\">\n      <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n      <span class=\"visually-hidden\">Next</span>\n    </button>\n  </div>\n  <!--Fin Carrusel-->\n\n  <!--sección Bestseller-->\n  <a name=\"bseller\"></a>\n  <hr class=\"rounded mb-3\">\n  <div class=\"secciones\">\n    <br>\n    <h1>BESTSELLERS</h1>\n    <br>\n    <hr class=\"rounded mb-3\">\n    <div class=\"container\">\n      <hr class=\"rounded mb-3\">\n      <div class=\"row row-cols-1 row-cols-sm-12 row-cols-md-2 row-cols-lg-3\">\n        <!-- Tarjeta 1 -->\n        <div class=\"col mb-4\">\n          <div class=\"card\">\n            <img src=\"{% static 'img/CHOCLO.webp' %}\" class=\"card-img-top\" alt=\"choclito\">\n            <div class=\"card-body\">\n              <h5 class=\"card-title\">Choclo en granos 500 g</h5>\n              <p class=\"card-text\">$2990</p>\n              <a href=\"{% url 'productdetail' %}\" class=\"btn btn-primary\">Ver más</a>\n            </div>\n          </div>\n        </div>\n        <!-- Tarjeta 2 -->\n        <div class=\"col mb-4\">\n          <div class=\"card\">\n            <img src=\"{% static 'img/sofrito.webp' %}\" class=\"card-img-top\" alt=\"choclito\">\n            <div class=\"card-body\">\n              <h5 class=\"card-title\">Sofrito 150 g</h5>\n              <p class=\"card-text\">$2990</p>\n              <a href=\"{% url 'productdetail' %}\" class=\"btn btn-primary\">Ver más</a>\n            </div>\n          </div>\n        </div>\n        <!-- Tarjeta 3 -->\n        <div class=\"col mb-4\">\n          <div class=\"card\">\n            <img src=\"{% static 'img/jardinera.webp' %}\" class=\"card-img-top\" alt=\"jardinera\">\n            <div class=\"card-body\">\n              <h5 class=\"card-title\">Ensalada Jardinera 500 g</h5>\n              <p class=\"card-text\">$2990</p>\n              <a href=\"{% url 'productdetail' %}\" class=\"btn btn-primary\">Ver más</a>\n            </div>\n          </div>\n        </div>\n\n      </div>\n      <!--Fin sección Best Seller-->\n\n      <!--sección Productos-->\n      <a name=\"productos\"></a>\n      <hr class=\"rounded mb-3\">\n      <div class=\"secciones\">\n        <br>\n        <h1>PRODUCTOS</h1>\n        <br>\n        <hr class=\"rounded mb-3\">\n        <div class=\"row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4\">\n          <div class=\"col mb-4\">\n            <div class=\"card\">\n              <img src=\"{% static 'img/sofrito.webp' %}\" class=\"card-img-top\" alt=\"choclito\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">Sofrito 150 g</h5>\n                <p class=\"card-text\">$2990</p>\n                <a href=\"#\" class=\"btn btn-primary\">Comprar</a>\n              </div>\n            </div>\n          </div>\n          <!-- Tarjeta 6 -->\n          <div class=\"col mb-4\">\n            <div class=\"card\">\n              <img src=\"{% static 'img/CHOCLO.webp' %}\" class=\"card-img-top\" alt=\"choclito\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">Choclo Congelado</h5>\n                <p class=\"card-text\">$2990</p>\n                <a href=\"#\" class=\"btn btn-primary\">Comprar</a>\n              </div>\n            </div>\n          </div>\n          <!-- Tarjeta 7 -->\n          <div class=\"col mb-4\">\n            <div class=\"card\">\n              <img src=\"{% static 'img/primavera.webp' %}\" class=\"card-img-top\" alt=\"choclito\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">Ensalada Primavera 500 g</h5>\n                <p class=\"card-text\">$2990</p>\n                <a href=\"#\" class=\"btn btn-primary\">Comprar</a>\n              </div>\n            </div>\n          </div>\n          <!-- Tarjeta 4 -->\n          <div class=\"col mb-4\">\n            <div class=\"card\">\n              <img src=\"{% static 'img/jardinera.webp' %}\" class=\"card-img-top\" alt=\"jardinera\">\n              <div class=\"card-body\">\n                <h5 class=\"card-title\">Ensalada Jardinera 500 g</h5>\n                <p class=\"card-text\">$2990</p>\n                <a href=\"#\" class=\"btn btn-primary\">Comprar</a>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div id=\"ventanaModal\" class=\"modal\">\n      <div class=\"contenido-modal\">\n        <span class=\"close\">&times;</span>\n        <style>\n          /* Estilos para centrar el h1 */\n          h1 {\n            text-align: center;\n          }\n        </style>\n        <h1>Iniciar Sesión</h1>\n        <form class=\"loginForm\" id=\"loginForm\">\n          <div class=\"form-group\">\n            <label for=\"user\">Usuario:</label>\n            <input class=\"form-control contactInput\" type=\"text\" id=\"user\" name=\"pass\" required>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"pass\">Contraseña</label>\n            <input class=\"form-control contactInput\" type=\"password\" id=\"pass\" name=\"pass\" required>\n          </div>\n          <br>\n\n          <button type=\"submit\" class=\"btn btn-primary\">Iniciar Sesión</button>\n          <p>¿No tienes cuenta aún? | <a href=\"{% url 'registro' %}\">Regístrate</a></p>\n\n        </form>\n      </div>\n    </div>\n\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\"\n      integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\"\n      crossorigin=\"anonymous\"></script>\n    <script>\n      // Ventana modal\n      var modal = document.getElementById(\"ventanaModal\");\n\n      // Botón que abre el modal\n      var boton = document.getElementById(\"abrirModal\");\n\n      // Hace referencia al elemento <span> que tiene la X que cierra la ventana\n      var span = document.getElementsByClassName(\"close\")[0];\n\n      // Cuando el usuario hace click en el botón, se abre la ventana\n      boton.addEventListener(\"click\", function () {\n        modal.style.display = \"block\";\n      });\n\n      // Si el usuario hace click en la x, la ventana se cierra\n      span.addEventListener(\"click\", function () {\n        modal.style.display = \"none\";\n      });\n\n      // Si el usuario hace click fuera de la ventana, se cierra.\n      window.addEventListener(\"click\", function (event) {\n        if (event.target == modal) {\n          modal.style.display = \"none\";\n        }\n      });\n    </script>\n\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\"\n      integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\"\n      crossorigin=\"anonymous\"></script>\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>\n</body>\n<footer>\n  <p>&copy; 2024 Frozono | <a href=\"app/contacto.html\">Contáctanos</a></p>\n</footer>\n\n\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frozono/app/templates/app/home.html b/frozono/app/templates/app/home.html
+--- a/frozono/app/templates/app/home.html	(revision da46d5561b4353a85680332f9750fe97116b1a33)
++++ b/frozono/app/templates/app/home.html	(date 1713796905230)
+@@ -15,7 +15,11 @@
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+ 
+ 
+-  <title>Congelados | Frozono.cl </title>
++  <title>Congelados | Frozono.cl </title><div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
++  <h1 class="carousel-text display-4 d-none d-sm-block">FROZONO</h1>
++  <h1 class="carousel-text h3 d-block d-sm-none">FROZONO</h1>
++  <h2 class="carousel-text">CONGELADOS</h2>
++</div>
+ </head>
+ 
+ <body>
+@@ -90,24 +94,23 @@
+       <div class="carousel-item active" data-bs-interval="5000">
+         <!--si quiero le indico el tipo de display class="d-block w-100"-->
+         <div class="imgContainer">
+-          <img src="{% static 'img/congela3.png' %}" class="imgCarrousel" alt="poto">
++          <img src="{% static 'img/gudetamatocino.webp' %}" class="imgCarrousel" alt="poto">
+         </div>
+         <!-- Agrega el texto al centro -->
+         <div class="container-fluid">
+           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+-            <h1 class="carousel-text mb-3">FROZONO</h1>
+-            <h2 class="carousel-text">CONGELADOS</h2>
++            <h1 class="carousel-text display-4 d-none d-sm-block">FROZONO</h1>
++            <h1 class="carousel-text h3 d-block d-sm-none">FROZONO</h1>
++            <h2 class="carousel-text display-4 d-none d-sm-block">CONGELADOS</h2>
++            <h2 class="carousel-text h3 d-block d-sm-none">CONGELADOS</h2>
+           </div>
+         </div>
+       </div>
+       <div class="carousel-item" data-bs-interval="5000">
+         <div class="imgContainer">
+-          <img src="{% static 'img/frip.jpg' %}" class="imgCarrousel" alt="...">
++          <img src="{% static 'img/5-1_GU_WALLPAPER_1500x2000_C.webp' %}" class="imgCarrousel" alt="...">
+         </div>
+-        <!-- Agrega el texto al centro -->
+         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+-          <h1 class="carousel-text mb-3">FROZONO</h1>
+-          <h2 class="carousel-text">CONGELADOS</h2>
+         </div>
+       </div>
+     </div>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"944657ba-c2f3-4554-97cd-75b62d3cc980\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/aboutus.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/aboutus.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/base.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/base.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/catalogo.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/catalogo.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/contacto.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/contacto.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/home.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/home.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/login.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/login.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/productdetail.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/productdetail.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/frozono/app/templates/app/registro.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frozono/app/templates/app/registro.html\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <favorite-branches>\n      <branch-storage>\n        <map>\n          <entry type=\"LOCAL\">\n            <value>\n              <list>\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"cons\" />\n              </list>\n            </value>\n          </entry>\n        </map>\n      </branch-storage>\n    </favorite-branches>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;maricons&quot;\n  }\n}</component>\n  <component name=\"GitToolBoxStore\">\n    <option name=\"projectConfigVersion\" value=\"5\" />\n  </component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/maricons/FrozonoAppWeb.git&quot;,\n    &quot;accountId&quot;: &quot;2fa8d646-915d-460b-a88f-eb9b1574db62&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 6\n}</component>\n  <component name=\"ProjectId\" id=\"2epQFAdZz7kkMfe82y1zkpOsRmW\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"git-widget-placeholder\": \"#5 on cons\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"settings.editor.selected.configurable\": \"editor.preferences.fonts.default\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"944657ba-c2f3-4554-97cd-75b62d3cc980\" name=\"Changes\" comment=\"\" />\n      <created>1712598935548</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1712598935548</updated>\n      <workItem from=\"1712598938178\" duration=\"20000\" />\n      <workItem from=\"1712598971503\" duration=\"258000\" />\n      <workItem from=\"1712599587138\" duration=\"514000\" />\n      <workItem from=\"1712600346506\" duration=\"359000\" />\n      <workItem from=\"1713575998509\" duration=\"1067000\" />\n      <workItem from=\"1713582179920\" duration=\"3501000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision da46d5561b4353a85680332f9750fe97116b1a33)
++++ b/.idea/workspace.xml	(date 1713794684739)
+@@ -4,16 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="944657ba-c2f3-4554-97cd-75b62d3cc980" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/aboutus.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/aboutus.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/base.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/catalogo.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/catalogo.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/contacto.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/home.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/login.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/productdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/productdetail.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frozono/app/templates/app/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/frozono/app/templates/app/registro.html" afterDir="false" />
+-    </list>
++    <list default="true" id="944657ba-c2f3-4554-97cd-75b62d3cc980" name="Changes" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -58,19 +49,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "#5 on cons",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;#5 on cons&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+Index: .idea/material_theme_project_new.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"MaterialThemeProjectNewConfig\">\n    <option name=\"metadata\">\n      <MTProjectMetadataState>\n        <option name=\"userId\" value=\"5144d7a1:18ef94a464b:-7fb7\" />\n      </MTProjectMetadataState>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/material_theme_project_new.xml b/.idea/material_theme_project_new.xml
+--- a/.idea/material_theme_project_new.xml	(revision da46d5561b4353a85680332f9750fe97116b1a33)
++++ b/.idea/material_theme_project_new.xml	(date 1713794684762)
+@@ -3,7 +3,9 @@
+   <component name="MaterialThemeProjectNewConfig">
+     <option name="metadata">
+       <MTProjectMetadataState>
+-        <option name="userId" value="5144d7a1:18ef94a464b:-7fb7" />
++        <option name="migrated" value="true" />
++        <option name="pristineConfig" value="false" />
++        <option name="userId" value="5144d7a1:18ef94a464b:-7ffe" />
+       </MTProjectMetadataState>
+     </option>
+   </component>
