@@ -1,39 +1,20 @@
+/* Estilos generales */
 html {
-
     min-height: 100%;
     position: relative;
 }
 
 body {
     font-family: Montserrat, sans-serif;
+    margin-top: 56px;
     margin: 0;
     margin-bottom: 40px;
     padding-bottom: 70px;
-
-}
-footer {
-    background-color: #252B42;
-    color: white;
-    text-align: left;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    margin-top: 40px;
-
-
-}
-
-footer a{
-    color: white;
 }
 
 
-.pre-header-wrapper {
-    background-color: #252B42;
-    color: white;
-    padding-top: 10px;
-}
+
+
 
 .social-icons {
     text-align: right;
@@ -41,65 +22,67 @@ footer a{
 
 .social-icon {
     margin-left: 10px;
-    color: white;
-    /* Ajusta el espacio entre los iconos si es necesario */
-}
-
-.pre-header-wrapper .container {
-    display: flex;
-    justify-content: center;
-    align-items: right;
-    flex-direction: column;
+    color: #E8751A;
 }
 
 .text-muted-small {
-    color: #6c757d;
-    /* Color gris como el text-muted */
+    color: #898121;
     font-size: 14px;
-    /* Tamaño de fuente más pequeño */
 }
 
 .navbar-brand {
-    color: #252B42;
-    /* Color azul para el texto */
+    color: #898121;
     font-size: 24px;
-    /* Tamaño de fuente 24px */
     font-weight: bold;
-    /* Texto en negrita */
+}
+
+/* Estilos para el carrusel */
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: left;
+    z-index: 2;
+    padding: 20px;
+}
+
+.carousel-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #E5C287;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-none {
+    display: none !important;
 }
 
 .imgCarrousel {
     width: 100%;
-    height: 47vw;
-    /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.858) !important; /* Filtro de sombra para oscurecer */
-    /*background: (0, 0, 0, 0.1);*/
-
-}
-
-.secciones {
-    width: 100%;
-    text-align: center;
-}
-
-.btn {
-    background-color: #23A6F0 !important;
-    color: white;
-    border-color: #23A6F0;
+    height: calc(66.67vh - 70px);
+    object-fit: cover;
 }
 
 .imgContainer {
     width: 100%;
-    height: 47vw;
+    height: calc(66.67vh - 70px);
     position: relative;
     overflow: hidden;
-    /* Para que los elementos absolutos se posicionen con respecto a este contenedor */
 }
 
 .imgContainer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Para ajustar la imagen al contenedor sin distorsionarla */
 }
 
 .imgContainer::before {
@@ -110,9 +93,7 @@ footer a{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    /* Cambia el último valor para ajustar la opacidad */
     z-index: 1;
-    /* Para que el oscurecimiento esté detrás de la imagen */
 }
 
 .contactoForm {
@@ -128,7 +109,7 @@ footer a{
 }
 
 .navbar {
-    background-color: #82d1fe !important;
+    background-color: #FDA403 !important;
 }
 
 .loginForm {
@@ -139,92 +120,74 @@ footer a{
 }
 
 .btn-secondary {
-
-    background-color: #23A6F0 !important;
+    background-color: #898121 !important;
 }
 
-/* Fondo modal: negro con opacidad al 50% */
 .modal {
-    display: none; /* Por defecto, estará oculto */
-    position: fixed; /* Posición fija */
-    z-index: 1; /* Se situará por encima de otros elementos de la página*/
-    padding-top: 200px; /* El contenido estará situado a 200px de la parte superior */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px;
     left: 0;
     top: 0;
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Algura completa */
-    overflow: auto; /* Se activará el scroll si es necesario */
-    background-color: rgba(0,0,0,0.5); /* Color negro con opacidad del 50% */
-  }
-  
-  /* Ventana o caja modal */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .contenido-modal {
-    position: relative; /* Relativo con respecto al contenedor -modal- */
+    position: relative;
     background-color: white;
-    margin: auto; /* Centrada */
+    margin: auto;
     padding: 20px;
     width: 60%;
     -webkit-animation-name: animarsuperior;
     -webkit-animation-duration: 0.5s;
     animation-name: animarsuperior;
-    animation-duration: 0.5s
-  }
-  
-  /* Animación */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  
-@keyframes animarsuperior {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
-  
-  /* Botón cerrar */
+    animation-duration: 0.5s;
+}
+
 .close {
     color: black;
     float: right;
     font-size: 30px;
     font-weight: bold;
-  }
-  
+}
+
 .close:hover,
 .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer !important;
-  }
-
-.carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    text-align: center;
-    z-index: 2; /* Colocar el texto encima de la imagen */
-    /*color: white;  Color del texto */
 }
 
-.carousel-text {
+@media (min-width: 576px) {
+    .carousel-text {
+        font-size: 2rem;
+    }
 
-        font-family: "Montserrat", sans-serif;
-        font-size: 8rem; /* Tamaño del texto */
-        font-weight: 500; /* Peso de la fuente */
-    
-}
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        text-align: center;
+        z-index: 2;
+    }
 
-a:hover,
-a:focus{
+    a:hover,
+    a:focus {
+        cursor: pointer !important;
+    }
 
-    cursor: pointer !important;
-}
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
 }
