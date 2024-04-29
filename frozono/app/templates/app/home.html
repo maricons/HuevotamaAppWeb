@@ -30,13 +30,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png'%}">
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png'%}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png'%}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-J1VMDdNkLZVvG8g3fipqsNk6ogFJfyVn4xM4pM11H+7OLt8yUZLPn4Vf/9lCxVDPkFGw+tkiXH+GZwXGG+zJ8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-J1VMDdNkLZVvG8g3fipqsNk6ogFJfyVn4xM4pM11H+7OLt8yUZLPn4Vf/9lCxVDPkFGw+tkiXH+GZwXGG+zJ8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="manifest" href="{% static 'img/site.webmanifest'%}">
-  <title>Huevos Free Range | CarmenLopezDistribuidora.cl </title>
+  <title>Huevos Gallina Campo | CarmenLopezDistribuidora.cl </title>
 </head>
 
 <body>
-
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index: 1000;">
     <div class="container-fluid">
@@ -72,14 +73,14 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a id="abrirModal" class="nav-link" href="#" onclick="abrirModal();">
-              <span class="material-symbols-outlined" style="color: black;">
+              <span class="material-symbols-outlined" style="color: #1E321F;">
                 person
               </span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{% url 'aboutus' %}" class="nav-link">
-              <span class="material-symbols-outlined" style="color: black;">
+              <span class="material-symbols-outlined" style="color: #1E321F;">
                 shopping_cart
               </span>
             </a>
@@ -120,7 +121,7 @@
 
       <div class="carousel-item" data-bs-interval="5000">
         <div class="imgContainer">
-          <img src="{% static 'img/CINAMONMIAMOR.webp' %}" class="imgCarrousel d-block w-100" alt="GUDETAMA3">
+          <img src="{% static 'img/BANNER-CERTIFIED.webp' %}" class="imgCarrousel d-block w-100" alt="GUDETAMA3">
         </div>
       </div>
     </div>
@@ -215,12 +216,33 @@
         </div>
         <div class="col-md-6">
           <div class="card-body">
-            <h1 class="card-title">DÓNDE ENCONTRARNOS</h1>
+            <h1 class="card-title">Datos del Local: </h1>
             <hr class="rounded mb-3">
             <h2>Información de Contacto</h2>
             <p><strong>Dirección:</strong> San Antonio 1385, 2531138 Viña del Mar, Valparaíso</p>
-            <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
-            <p><strong>Correo Electrónico:</strong> co.quiero@duocuc.cl</p>
+            <p><strong>Teléfono:</strong> +56322972805</p>
+            <p><strong>Plus Code:</strong> XFR4+7X Viña del Mar</p>
+
+            <!-- Horarios de Atención -->
+            <div class="accordion" id="horariosAccordion">
+              <!-- Horarios de Atención Header -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="horariosHeader">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#horariosCollapse" aria-expanded="true" aria-controls="horariosCollapse">
+                    Horarios de Atención
+                  </button>
+                </h2>
+                <div id="horariosCollapse" class="accordion-collapse collapse show" aria-labelledby="horariosHeader"
+                  data-bs-parent="#horariosAccordion">
+                  <div class="accordion-body">
+                    <!-- Horarios de Atención Contenido -->
+                    <p><strong>Lunes a Sábado:</strong> 7:45 a. m.–5:30 p. m.</p>
+                    <p><strong>Domingo:</strong> Cerrado</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -256,128 +278,132 @@
     <div class="container">
       <div class="row">
         <!-- Sección del logo y sobre nosotros -->
-        <div class="col-md-4 mb-3">
-          <img src="{% static 'img/logo2.png' %}" alt="Logo" class="footer-logo mb-2">
-          <p style="text-align: justify">Desde el corazón de Viña del Mar, Distribuidora de Huevos El Yugo se enorgullece de ser su proveedor confiable de huevos frescos y de calidad. Con una tradición que combina técnicas avícolas modernas y un compromiso con la sostenibilidad, nos dedicamos a llevar a su mesa productos nutritivos y deliciosos. Nuestra misión es nutrir a las familias con lo mejor de la granja a su hogar, asegurando siempre frescura y sabor en cada huevo. 🥚✨</p>
+        <div class="row">
+          <div class="col-md-4 mb-3 d-flex align-items-end">
+            <img src="{% static 'img/logo2.png' %}" alt="Logo" class="footer-logo mb-2">
+          </div>
+          <div class="col-md-8 mb-3">
+            <p style="text-align: justify"> <br>"Desde el corazón de Viña del Mar, la Distribuidora de Huevos Carmen López se enorgullece de ser su proveedor de huevos frescos y de calidad desde 1960. Nuestra misión es nutrir a las familias con lo mejor de la granja directamente a su hogar, garantizando siempre frescura y sabor en cada huevo. Contamos con clientes fieles que han confiado en nosotros durante décadas, respaldando así nuestro negocio consolidado."</p>
+          </div>
         </div>
-        
+
         <!-- Sección de enlaces rápidos -->
-        <div class="col-md-4 mb-3">
-          <h5 class="text-uppercase mb-4">Enlaces Rápidos</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="footer-link">Nosotros</a></li>
-            <li><a href="#" class="footer-link">Servicios</a></li>
-            <li><a href="#" class="footer-link">Contacto</a></li>
-          </ul>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5 class="text-uppercase mb-4">Enlaces Rápidos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Nosotros</a></li>
+              <li><a href="#" class="footer-link">Servicios</a></li>
+              <li><a href="#" class="footer-link">Contacto</a></li>
+            </ul>
+          </div>
+
+          <!-- Sección de contacto y redes sociales -->
+          <div class="col-md-4 mb-3">
+            <h5 class="text-uppercase mb-4">Contacto</h5>
+            <ul class="list-unstyled">
+              <li><a href="tel:+56322972805" class="footer-link">+56 3 2 2972805</a></li>
+              <li><a href="mailto:contacto@empresa.com" class="footer-link">CarmenLopez@Distribuidora.cl</a></li>
+            </ul>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/distribuidoradehuevoscarmenlopez/" class="social-icon"
+                target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://wa.me/c/56938946675" class="social-icon" target="_blank"><i
+                  class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/distribuidora_carmenlopez/" class="social-icon" target="_blank"><i
+                  class="fab fa-instagram"></i></a>
+            </div>
+          </div>
         </div>
-        
-        <!-- Sección de contacto y redes sociales -->
-        <div class="col-md-4 mb-3">
-          <h5 class="text-uppercase mb-4">Contacto</h5>
-          <ul class="list-unstyled">
-            <li><a href="tel:+123456789" class="footer-link">+1 234 567 89</a></li>
-            <li><a href="mailto:contacto@empresa.com" class="footer-link">contacto@empresa.com</a></li>
-          </ul>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+
+        <!-- Scripts -->
+        <script>
+          // Función para abrir la ventana modal con lazy loading
+          function abrirModal() {
+            // Asegúrate de que la ventana modal esté oculta inicialmente y solo se muestre cuando esta función se ejecute
+            var modal = document.getElementById('ventanaModal');
+            modal.style.display = 'flex'; // Cambiar a 'flex' para activar Flexbox
+            modal.style.opacity = '0'; // Iniciar con opacidad 0 para el efecto de lazy loading
+
+            // Incrementar gradualmente la opacidad para el efecto de carga diferida
+            setTimeout(function () {
+              modal.style.opacity = '1';
+            }, 100); // Puedes ajustar el tiempo según prefieras
+          }
+
+          // Función para cerrar la ventana modal
+          function cerrarModal() {
+            var modal = document.getElementById('ventanaModal');
+            modal.style.display = 'none';
+          }
+
+          // Evento para cerrar la modal si se hace clic fuera de ella
+          window.onclick = function (event) {
+            var modal = document.getElementById('ventanaModal');
+            if (event.target == modal) {
+              cerrarModal();
+            }
+          }
+        </script>
+
+        <script>
+          function iniciarMap() {
+            var coord = { lat: -33.0092618, lng: -71.5425126 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 14,
+              center: coord
+            });
+            var marker = new google.maps.Marker({
+              position: coord,
+              map: map
+            });
+          }
+        </script>
 
 
 
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
 
-  <!-- Scripts -->
-  <script>
-    // Función para abrir la ventana modal con lazy loading
-    function abrirModal() {
-      // Asegúrate de que la ventana modal esté oculta inicialmente y solo se muestre cuando esta función se ejecute
-      var modal = document.getElementById('ventanaModal');
-      modal.style.display = 'flex'; // Cambiar a 'flex' para activar Flexbox
-      modal.style.opacity = '0'; // Iniciar con opacidad 0 para el efecto de lazy loading
+            if ("IntersectionObserver" in window) {
+              var lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    var lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy");
+                    lazyImageObserver.unobserve(lazyImage);
 
-      // Incrementar gradualmente la opacidad para el efecto de carga diferida
-      setTimeout(function () {
-        modal.style.opacity = '1';
-      }, 100); // Puedes ajustar el tiempo según prefieras
-    }
+                    // Agrega la clase 'loaded' para activar la transición suave
+                    lazyImage.classList.add("loaded");
+                  }
+                });
+              });
 
-    // Función para cerrar la ventana modal
-    function cerrarModal() {
-      var modal = document.getElementById('ventanaModal');
-      modal.style.display = 'none';
-    }
-
-    // Evento para cerrar la modal si se hace clic fuera de ella
-    window.onclick = function (event) {
-      var modal = document.getElementById('ventanaModal');
-      if (event.target == modal) {
-        cerrarModal();
-      }
-    }
-  </script>
-  <script>
-    function iniciarMap() {
-      var coord = { lat: -33.0092618, lng: -71.5425126 };
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: coord
-      });
-      var marker = new google.maps.Marker({
-        position: coord,
-        map: map
-      });
-    }
-  </script>
-
-  
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
-
-      if ("IntersectionObserver" in window) {
-        var lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              var lazyImage = entry.target;
-              lazyImage.src = lazyImage.dataset.src;
-              lazyImage.classList.remove("lazy");
-              lazyImageObserver.unobserve(lazyImage);
-
-              // Agrega la clase 'loaded' para activar la transición suave
-              lazyImage.classList.add("loaded");
+              lazyImages.forEach(function (lazyImage) {
+                lazyImageObserver.observe(lazyImage);
+              });
+            } else {
+              // Polyfill o alternativa para navegadores que no soportan IntersectionObserver
+              // Puedes cargar las imágenes de forma estándar para estos navegadores
+              lazyImages.forEach(function (lazyImage) {
+                lazyImage.src = lazyImage.dataset.src;
+              });
             }
           });
-        });
+        </script>
 
-        lazyImages.forEach(function (lazyImage) {
-          lazyImageObserver.observe(lazyImage);
-        });
-      } else {
-        // Polyfill o alternativa para navegadores que no soportan IntersectionObserver
-        // Puedes cargar las imágenes de forma estándar para estos navegadores
-        lazyImages.forEach(function (lazyImage) {
-          lazyImage.src = lazyImage.dataset.src;
-        });
-      }
-    });
-  </script>
-
-  <!-- Carga de librerías de Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin=""></script>
-  <script src="{% static 'js/javascript.js' %}"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+        <!-- Carga de librerías de Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin=""></script>
+        <script src="{% static 'js/javascript.js' %}"></script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
 </body>
 
 
