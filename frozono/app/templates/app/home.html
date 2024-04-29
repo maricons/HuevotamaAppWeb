@@ -30,6 +30,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png'%}">
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png'%}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-J1VMDdNkLZVvG8g3fipqsNk6ogFJfyVn4xM4pM11H+7OLt8yUZLPn4Vf/9lCxVDPkFGw+tkiXH+GZwXGG+zJ8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="manifest" href="{% static 'img/site.webmanifest'%}">
   <title>Huevos Free Range | CarmenLopezDistribuidora.cl </title>
 </head>
@@ -70,7 +71,7 @@
       <div class="d-flex">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a id="abrirModal" class="nav-link">
+            <a id="abrirModal" class="nav-link" href="#" onclick="abrirModal();">
               <span class="material-symbols-outlined" style="color: black;">
                 person
               </span>
@@ -149,7 +150,7 @@
     <hr class="rounded mb-3">
 
     <!-- Sección Productos -->
-    <h1>PRODUCTOS</h1>
+    <h1 style="text-align: center;">PRODUCTOS</h1>
     <hr class="rounded mb-3">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
       <!-- Tarjeta 1 -->
@@ -207,18 +208,20 @@
       <!-- Fin sección Productos -->
     </div>
 
-    <div class="container mb-3">
-      <h1>DÓNDE ENCONTRARNOS</h1>
-      <hr class="rounded mb-3">
-      <div class="row">
-        <div class="col">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-6">
           <div id="map"></div>
         </div>
-        <div class="col">
-          <h2>Información de Contacto</h2>
-          <p><strong>Dirección:</strong> San Antonio 1385, 2531138 Viña del Mar, Valparaíso</p>
-          <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
-          <p><strong>Correo Electrónico:</strong> co.quiero@duocuc.cl</p>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h1 class="card-title">DÓNDE ENCONTRARNOS</h1>
+            <hr class="rounded mb-3">
+            <h2>Información de Contacto</h2>
+            <p><strong>Dirección:</strong> San Antonio 1385, 2531138 Viña del Mar, Valparaíso</p>
+            <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+            <p><strong>Correo Electrónico:</strong> co.quiero@duocuc.cl</p>
+          </div>
         </div>
       </div>
     </div>
@@ -227,47 +230,59 @@
     <!-- Ventana Modal -->
     <div id="ventanaModal" class="modal">
       <div class="contenido-modal">
-        <span class="close">&times;</span>
-        <style>
-          /* Estilos para centrar el h1 */
-          h1 {
-            text-align: center;
-          }
-        </style>
-        <h1>Iniciar Sesión</h1>
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h1 style="text-align: center;">Iniciar Sesión</h1>
         <form class="loginForm" id="loginForm">
+          <!-- Campos del formulario -->
           <div class="form-group">
             <label for="user">Usuario:</label>
-            <input class="form-control contactInput" type="text" id="user" name="pass" required>
+            <input class="form-control contactInput" type="text" id="user" name="user" required>
           </div>
-
           <div class="form-group">
-            <label for="pass">Contraseña</label>
+            <label for="pass">Contraseña:</label>
             <input class="form-control contactInput" type="password" id="pass" name="pass" required>
           </div>
-          <br>
-
           <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-          <p>¿No tienes cuenta aún? | <a href="{% url 'registro' %}">Regístrate</a></p>
+          <p>¿No tienes cuenta aún? | <a href="{% url 'registro'%}">Regístrate</a></p>
         </form>
       </div>
     </div>
-  </div>
+
   </div>
 
+
   <!-- Fin Ventana Modal -->
-  <footer class="footer">
+  <footer class="footer bg-dark text-light py-4">
     <div class="container">
       <div class="row">
-        <div class="col">
-          <h5>Información</h5>
-          <ul>
-            <li><a href="{% url 'aboutus' %}" style="text-decoration: none; color: inherit;">Nosotros</a></li>
-            <li><a href="{% url 'contacto' %}" style="text-decoration: none; color: inherit;">Contáctanos</a></li>
-            <li><a href="{% url 'catalogo' %}" style="text-decoration: none; color: inherit;">Catálogo</a></li>
+        <!-- Sección del logo y sobre nosotros -->
+        <div class="col-md-4 mb-3">
+          <img src="{% static 'img/logo2.png' %}" alt="Logo" class="footer-logo mb-2">
+          <p style="text-align: justify">Desde el corazón de Viña del Mar, Distribuidora de Huevos El Yugo se enorgullece de ser su proveedor confiable de huevos frescos y de calidad. Con una tradición que combina técnicas avícolas modernas y un compromiso con la sostenibilidad, nos dedicamos a llevar a su mesa productos nutritivos y deliciosos. Nuestra misión es nutrir a las familias con lo mejor de la granja a su hogar, asegurando siempre frescura y sabor en cada huevo. 🥚✨</p>
+        </div>
+        
+        <!-- Sección de enlaces rápidos -->
+        <div class="col-md-4 mb-3">
+          <h5 class="text-uppercase mb-4">Enlaces Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="footer-link">Nosotros</a></li>
+            <li><a href="#" class="footer-link">Servicios</a></li>
+            <li><a href="#" class="footer-link">Contacto</a></li>
           </ul>
-          <p>&copy; 2024 Distribuidora Carmen López | <a href="app/contacto.html"
-              style="text-decoration: none; color: inherit;">Contáctanos</a></p>
+        </div>
+        
+        <!-- Sección de contacto y redes sociales -->
+        <div class="col-md-4 mb-3">
+          <h5 class="text-uppercase mb-4">Contacto</h5>
+          <ul class="list-unstyled">
+            <li><a href="tel:+123456789" class="footer-link">+1 234 567 89</a></li>
+            <li><a href="mailto:contacto@empresa.com" class="footer-link">contacto@empresa.com</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
         </div>
       </div>
     </div>
@@ -278,10 +293,38 @@
 
   <!-- Scripts -->
   <script>
+    // Función para abrir la ventana modal con lazy loading
+    function abrirModal() {
+      // Asegúrate de que la ventana modal esté oculta inicialmente y solo se muestre cuando esta función se ejecute
+      var modal = document.getElementById('ventanaModal');
+      modal.style.display = 'flex'; // Cambiar a 'flex' para activar Flexbox
+      modal.style.opacity = '0'; // Iniciar con opacidad 0 para el efecto de lazy loading
+
+      // Incrementar gradualmente la opacidad para el efecto de carga diferida
+      setTimeout(function () {
+        modal.style.opacity = '1';
+      }, 100); // Puedes ajustar el tiempo según prefieras
+    }
+
+    // Función para cerrar la ventana modal
+    function cerrarModal() {
+      var modal = document.getElementById('ventanaModal');
+      modal.style.display = 'none';
+    }
+
+    // Evento para cerrar la modal si se hace clic fuera de ella
+    window.onclick = function (event) {
+      var modal = document.getElementById('ventanaModal');
+      if (event.target == modal) {
+        cerrarModal();
+      }
+    }
+  </script>
+  <script>
     function iniciarMap() {
       var coord = { lat: -33.0092618, lng: -71.5425126 };
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 50,
+        zoom: 14,
         center: coord
       });
       var marker = new google.maps.Marker({
@@ -291,33 +334,7 @@
     }
   </script>
 
-  <script>
-    // Ventana modal
-    var modal = document.getElementById("ventanaModal");
-
-    // Botón que abre el modal
-    var boton = document.getElementById("abrirModal");
-
-    // Hace referencia al elemento <span> que tiene la X que cierra la ventana
-    var span = document.getElementsByClassName("close")[0];
-
-    // Cuando el usuario hace click en el botón, se abre la ventana
-    boton.addEventListener("click", function () {
-      modal.style.display = "block";
-    });
-
-    // Si el usuario hace click en la x, la ventana se cierra
-    span.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-
-    // Si el usuario hace click fuera de la ventana, se cierra.
-    window.addEventListener("click", function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    });
-  </script>
+  
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {

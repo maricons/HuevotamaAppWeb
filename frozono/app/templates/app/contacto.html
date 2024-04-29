@@ -75,71 +75,87 @@
   <!--Fin de Navbar-->
 
   <!--comienzo formulario-->
-  <br>
-  <br>
+
   <div class="container">
-    <h1 style="text-align: center;">CONTACTO</h1>
-    <p style="text-align: center;">¡Contáctanos para contarnos acerca de tu opinión!</p>
-    <form class="contactoForm" id="contactForm" onsubmit="return validarFormulario()" novalidate>
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input class="form-control contactInput" type="text" id="nombre" name="nombre" required>
+    <div class="card mb-3 mt-3">
+      <div class="card-body">
+        <h1 class="text-center">CONTACTO</h1>
+        <p class="text-center">¡Contáctanos para contarnos acerca de tu opinión!</p>
+        <form class="contactoForm" id="contactForm" onsubmit="return validarFormulario()" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input class="form-control contactInput" type="text" id="nombre" name="nombre" required maxlength="50">
+          </div>
+
+          <div class="form-group">
+            <label for="apellido1">Primer Apellido:</label>
+            <input class="form-control contactInput" type="text" id="apellido1" name="apellido1" required
+              maxlength="50">
+          </div>
+          <div class="form-group">
+            <label for="apellido2">Segundo Apellido:</label>
+            <input class="form-control contactInput" type="text" id="apellido2" name="apellido2" required
+              maxlength="50">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input class="form-control contactInput" type="email" id="email" name="email" required maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea class="form-control contactInput" id="mensaje" name="mensaje" rows="4" required
+              maxlength="500"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+        </form>
       </div>
-
-      <div class="form-group">
-        <label for="nombre">Primer Apellido:</label>
-        <input class="form-control contactInput" type="text" id="apellido1" name="apellido1" required>
-      </div>
-      <div class="form-group">
-        <label for="nombre">Segundo Apellido:</label>
-        <input class="form-control contactInput" type="text" id="apellido2" name="apellido2" required>
-      </div>
-
-
-
-
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input class="form-control contactInput" type="email" id="email" name="email" required>
-      </div>
-
-      <div class="form-group">
-        <label for="mensaje">Mensaje:</label>
-        <textarea class="form-control contactInput" id="mensaje" name="mensaje" rows="4" required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+    </div>
   </div>
-  <br>
-  <br> <br>
-  <br> <br>
-  <br> <br>
-  <br> <br>
   <!--fin formulario-->
   <!--script validacion formulario-->
   <script>
     function validarFormulario() {
       var nombre = document.getElementById('nombre').value;
+      var apellido1 = document.getElementById('apellido1').value;
+      var apellido2 = document.getElementById('apellido2').value;
       var email = document.getElementById('email').value;
       var mensaje = document.getElementById('mensaje').value;
 
       // Validar que los campos no estén vacíos
-      if (nombre.trim() === '' || email.trim() === '' || mensaje.trim() === '') {
-        alert('Por favor, complete todos los campos.');
-        return false; // Detener el envío del formulario
+      if (nombre.trim() === '') {
+        alert('Por favor, ingrese su nombre.');
+        return false;
+      }
+      if (apellido1.trim() === '') {
+        alert('Por favor, ingrese su primer apellido.');
+        return false;
+      }
+      if (apellido2.trim() === '') {
+        alert('Por favor, ingrese su segundo apellido.');
+        return false;
+      }
+      if (email.trim() === '') {
+        alert('Por favor, ingrese su email.');
+        return false;
+      }
+      if (mensaje.trim() === '') {
+        alert('Por favor, ingrese su mensaje.');
+        return false;
       }
 
       // Validar formato de email
       var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         alert('Por favor, ingrese un email válido.');
-        return false; // Detener el envío del formulario
+        return false;
       }
 
       // Si pasa todas las validaciones, enviar el formulario
       alert('Formulario enviado correctamente.');
-      return true; // Permitir el envío del formulario
+      return true;
     }
   </script>
   <!--fin script validacion formulario-->
@@ -154,20 +170,20 @@
   <script src="{% static 'js/javascript.js' %}"></script>
 
   <footer class="footer">
-    
-      <div class="row">
-        <div class="col">
-          <h5>Información</h5>
-          <ul>
-            <li><a href="{% url 'aboutus' %}" style="text-decoration: none; color: inherit;">Nosotros</a></li>
-            <li><a href="{% url 'contacto' %}" style="text-decoration: none; color: inherit;">Contáctanos</a></li>
-            <li><a href="{% url 'catalogo' %}" style="text-decoration: none; color: inherit;">Catálogo</a></li>
-          </ul>
-          <p>&copy; 2024 Distribuidora Carmen López | <a href="app/contacto.html"
-              style="text-decoration: none; color: inherit;">Contáctanos</a></p>
-        </div>
+
+    <div class="row">
+      <div class="col">
+        <h5>Información</h5>
+        <ul>
+          <li><a href="{% url 'aboutus' %}" style="text-decoration: none; color: inherit;">Nosotros</a></li>
+          <li><a href="{% url 'contacto' %}" style="text-decoration: none; color: inherit;">Contáctanos</a></li>
+          <li><a href="{% url 'catalogo' %}" style="text-decoration: none; color: inherit;">Catálogo</a></li>
+        </ul>
+        <p>&copy; 2024 Distribuidora Carmen López | <a href="app/contacto.html"
+            style="text-decoration: none; color: inherit;">Contáctanos</a></p>
       </div>
-    
+    </div>
+
   </footer>
 </body>
 
