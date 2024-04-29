@@ -13,8 +13,6 @@
 </head>
 
 <body>
-    <!--Fin Pre header-->
-    <!--Navbar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
@@ -54,205 +52,68 @@
             </div>
         </div>
     </nav>
-    <!--Fin de Navbar-->
+    <!-- Título "Catálogo" con margen superior -->
+    <div class="container mt-5 pt-5"> 
+        <h1 class="text-center mb-4">Catálogo</h1>
+        <div class="card-deck">
 
-    <!--inicio catalogo-->
-    <!--Parte arriba-->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p class="text-muted-small mb-0">Inicio | Catálogo</p>
-                <h1 class="text-center mb-4">Nuestro Catálogo</h1>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'img/30 GOLD RANGERS - PRODUCTDETAIL.webp' %}"
+                    alt="Huevo Extra Color">
+                <div class="card-body">
+                    <h5 class="card-title">Huevo Extra Color</h5>
+                    <p class="card-text">30 unidades</p>
+                    <p class="card-text">$8490</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img-top" src="{% static 'img/60 GOLD RANGERS.jpeg' %}" alt="Huevo Color">
+                <div class="card-body">
+                    <h5 class="card-title">Huevo Color</h5>
+                    <p class="card-text">60 unidades</p>
+                    <p class="card-text">$18.600</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img-top" src="{% static 'img/90 GOLD RANGERS.webp' %}" alt="Huevo Extra Color">
+                <div class="card-body">
+                    <h5 class="card-title">Huevo Extra Color</h5>
+                    <p class="card-text">90 unidades</p>
+                    <p class="card-text">$2990</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card-img-top" src="{% static 'img/120 GOLD RANGERS.webp' %}" alt="Huevo Extra Color">
+                <div class="card-body">
+                    <h5 class="card-title">Huevo Extra Color</h5>
+                    <p class="card-text">90 unidades</p>
+                    <p class="card-text">$2990</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <hr class="rounded mb-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 card-deck">
-
-            <!-- Tarjeta 1 -->
-            <div class="col mb-4">
-                <div class="card h-100">
-                    <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">30 unidades</p>
-                        <p class="card-text">$8490</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 1.1 -->
-            <div class="col mb-4">
-                <div class="card h-100">
-                    <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">30 unidades</p>
-                        <p class="card-text">$8490</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 1.2 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">30 unidades</p>
-                        <p class="card-text">$8490</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/60 GOLD RANGERS.jpeg' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 2.1 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/60 GOLD RANGERS.jpeg' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 2.2 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/60 GOLD RANGERS.jpeg' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 3 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/90 GOLD RANGERS.webp' %}" class="card-img-top" alt="jardinera">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">90 unidades</p>
-                        <p class="card-text">$2990</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 3.1 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/90 GOLD RANGERS.webp' %}" class="card-img-top" alt="jardinera">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">90 unidades</p>
-                        <p class="card-text">$2990</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 3 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/90 GOLD RANGERS.webp' %}" class="card-img-top" alt="jardinera">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">90 unidades</p>
-                        <p class="card-text">$2990</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/90 MIXED WEIGHT.webp' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 5 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/120 GOLD RANGERS.webp' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 6 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 6 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tarjeta 6 -->
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="choclito">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    </div>
-
 
     <!--SCRIPTS JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h5>Información</h5>
+              <ul>
+                <li><a href="{% url 'aboutus' %}">Nosotros</a></li>
+                <li><a href="{% url 'contacto' %}">Contáctanos</a></li>
+                <li><a href="{% url 'catalogo' %}">Catálogo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
 </body>
-<footer class="mt-5">
-    <p>&copy; 2024 CarmenLopezDistribuidora.cl | <a href="app/contacto.html">Contáctanos</a></p>
-</footer>
 
 </html>

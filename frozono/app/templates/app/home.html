@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
 
 <head>
   <meta charset="UTF-8">
@@ -8,16 +8,32 @@
   <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* Estilo personalizado para quitar los puntos de las viñetas */
+    ul {
+      list-style-type: none;
+      /* Elimina los puntos de las viñetas */
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,537;1,537&display=swap" rel="stylesheet">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png'%}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png'%}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png'%}">
+  <link rel="manifest" href="{% static 'img/site.webmanifest'%}">
   <title>Huevos Free Range | CarmenLopezDistribuidora.cl </title>
 </head>
+
 <body>
 
   <!--Navbar-->
@@ -33,7 +49,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
@@ -54,15 +70,20 @@
       <div class="d-flex">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a id="abrirModal" class="nav-link">Iniciar sesión</a>
+            <a id="abrirModal" class="nav-link">
+              <span class="material-symbols-outlined" style="color: black;">
+                person
+              </span>
+            </a>
           </li>
-          <li>
-            <a href="{% url 'aboutus' %}">
-              <span class="material-symbols-outlined">
+          <li class="nav-item">
+            <a href="{% url 'aboutus' %}" class="nav-link">
+              <span class="material-symbols-outlined" style="color: black;">
                 shopping_cart
               </span>
             </a>
           </li>
+
         </ul>
       </div>
     </div>
@@ -70,11 +91,11 @@
   <!--Fin de Navbar-->
 
   <!-- Carrusel -->
-  <div id="carouselMyExample" class="carousel slide" data-bs-ride="carousel" style="margin-top: 56px;">
+  <div id="carouselMyExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="5000">
         <div class="imgContainer">
-          <img src="{% static 'img/gudetamatocino.webp' %}" class="imgCarrousel" alt="poto">
+          <img data-src="{% static 'img/gudetamatocino.webp' %}" class="imgCarrousel" alt="poto">
         </div>
         <div class="carousel-caption d-flex flex-column align-items-start justify-content-end">
           <h1 class="carousel-text display-5 d-none d-sm-block">Distribuidora Carmen L&oacute;pez</h1>
@@ -85,7 +106,8 @@
       </div>
       <div class="carousel-item" data-bs-interval="5000">
         <div class="imgContainer">
-          <img src="{% static 'img/5-1_GU_WALLPAPER_1500x2000_C.webp' %}" class="imgCarrousel d-block w-100" alt="...">
+          <img data-src="{% static 'img/5-1_GU_WALLPAPER_1500x2000_C.webp' %}" class="imgCarrousel d-block w-100"
+            alt="...">
         </div>
         <div class="carousel-caption d-flex flex-column align-items-start justify-content-end">
           <h1 class="carousel-text display-5 d-none d-sm-block">Distribuidora Carmen L&oacute;pez</h1>
@@ -94,8 +116,16 @@
           <h4 class="carousel-text h4 d-block d-sm-none">Blanco y de color… Es mejor</h4>
         </div>
       </div>
+
+      <div class="carousel-item" data-bs-interval="5000">
+        <div class="imgContainer">
+          <img src="{% static 'img/CINAMONMIAMOR.webp' %}" class="imgCarrousel d-block w-100" alt="GUDETAMA3">
+        </div>
+      </div>
     </div>
   </div>
+
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselMyExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -107,185 +137,232 @@
   <!-- Fin Carrusel -->
 
 
-
-
-  <!--sección Bestseller-->
-  <a name="bseller"></a>
+  <!--sección Productos-->
+  <a name="productos"></a>
   <hr class="rounded mb-3">
-  <div class="secciones">
-    <br>
-    <h1>BESTSELLERS</h1>
-    <br>
+
+  <!--Logo Carmén Lopez-->
+  <div class="d-flex justify-content-center">
+    <img src="{% static 'img/GRANDE COLOR.png' %}" alt="logo" class="img-fluid">
+  </div>
+  <div class="container">
     <hr class="rounded mb-3">
-    <div class="container">
-      <hr class="rounded mb-3">
-      <div class="row row-cols-1 row-cols-sm-12 row-cols-md-2 row-cols-lg-3">
-        <!-- Tarjeta 1 -->
-        <div class="col mb-4">
-          <div class="card">
-            <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-            <div class="card-body">
-              <h5 class="card-title">Huevo Extra Color</h5>
-              <p class="card-text">30 unidades</p>
-              <p class="card-text">$8490</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <!-- Tarjeta 2 -->
-        <div class="col mb-4">
-          <div class="card">
-            <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-            <div class="card-body">
-              <h5 class="card-title">Huevo Extra Color</h5>
-              <p class="card-text">30 unidades</p>
-              <p class="card-text">$8490</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <!-- Tarjeta 3 -->
-        <div class="col mb-4">
-          <div class="card">
-            <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-            <div class="card-body">
-              <h5 class="card-title">Huevo Extra Color</h5>
-              <p class="card-text">30 unidades</p>
-              <p class="card-text">$8490</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-          </div>
-        </div>
 
+    <!-- Sección Productos -->
+    <h1>PRODUCTOS</h1>
+    <hr class="rounded mb-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <!-- Tarjeta 1 -->
+      <div class="col mb-4">
+        <div class="card">
+          <a href="{% url 'productdetail' %}">
+            <img data-src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="30 buebos">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Huevo Extra Color</h5>
+            <p class="card-text">30 unidades</p>
+            <p class="card-text">$8490</p>
+          </div>
+        </div>
       </div>
-      <!--Fin sección Best Seller-->
+      <!-- Tarjeta 2 -->
+      <div class="col mb-4">
+        <div class="card">
+          <a href="{% url 'productdetail' %}">
+            <img data-src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="30 buebos">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Huevo Extra Color</h5>
+            <p class="card-text">30 unidades</p>
+            <p class="card-text">$8490</p>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta 3 -->
+      <div class="col mb-4">
+        <div class="card">
+          <a href="{% url 'productdetail' %}">
+            <img data-src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="30 buebos">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Huevo Extra Color</h5>
+            <p class="card-text">30 unidades</p>
+            <p class="card-text">$8490</p>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta 4 -->
+      <div class="col mb-4">
+        <div class="card">
+          <a href="{% url 'productdetail' %}">
+            <img data-src="{% static 'img/180 GOLD RANGER.webp' %}" class="card-img-top" alt="30 buebos">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Huevo Extra Color</h5>
+            <p class="card-text">30 unidades</p>
+            <p class="card-text">$8490</p>
+          </div>
+        </div>
+      </div>
+      <!-- Fin sección Productos -->
+    </div>
 
-      <!--sección Productos-->
-      <a name="productos"></a>
+    <div class="container mb-3">
+      <h1>DÓNDE ENCONTRARNOS</h1>
       <hr class="rounded mb-3">
-      <div class="secciones">
-        <br>
-        <h1>PRODUCTOS</h1>
-        <br>
-        <hr class="rounded mb-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-          <!-- Tarjeta 1 -->
-          <div class="col mb-4">
-            <div class="card">
-              <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-              <div class="card-body">
-                <h5 class="card-title">Huevo Extra Color</h5>
-                <p class="card-text">30 unidades</p>
-                <p class="card-text">$8490</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <!-- Tarjeta 2 -->
-          <div class="col mb-4">
-            <div class="card">
-              <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-              <div class="card-body">
-                <h5 class="card-title">Huevo Extra Color</h5>
-                <p class="card-text">30 unidades</p>
-                <p class="card-text">$8490</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <!-- Tarjeta 3 -->
-          <div class="col mb-4">
-            <div class="card">
-              <img src="{% static 'img/30 GOLD RANGERS .webp' %}" class="card-img-top" alt="30 buebos">
-              <div class="card-body">
-                <h5 class="card-title">Huevo Extra Color</h5>
-                <p class="card-text">30 unidades</p>
-                <p class="card-text">$8490</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <!-- Tarjeta 4 -->
-          <div class="col mb-4">
-            <div class="card">
-              <img src="{% static 'img/90 MIXED WEIGHT.webp' %}" class="card-img-top" alt="choclito">
-              <div class="card-body">
-                <h5 class="card-title">Huevo Color</h5>
-                <p class="card-text">60 unidades</p>
-                <p class="card-text">$18.600</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-              </div>
-            </div>
+      <div class="row">
+        <div class="col">
+          <div id="map"></div>
+        </div>
+        <div class="col">
+          <h2>Información de Contacto</h2>
+          <p><strong>Dirección:</strong> San Antonio 1385, 2531138 Viña del Mar, Valparaíso</p>
+          <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+          <p><strong>Correo Electrónico:</strong> co.quiero@duocuc.cl</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Ventana Modal -->
+    <div id="ventanaModal" class="modal">
+      <div class="contenido-modal">
+        <span class="close">&times;</span>
+        <style>
+          /* Estilos para centrar el h1 */
+          h1 {
+            text-align: center;
+          }
+        </style>
+        <h1>Iniciar Sesión</h1>
+        <form class="loginForm" id="loginForm">
+          <div class="form-group">
+            <label for="user">Usuario:</label>
+            <input class="form-control contactInput" type="text" id="user" name="pass" required>
           </div>
 
-          <!-- Ventana Modal -->
-          <div id="ventanaModal" class="modal">
-            <div class="contenido-modal">
-              <span class="close">&times;</span>
-              <style>
-                /* Estilos para centrar el h1 */
-                h1 {
-                  text-align: center;
-                }
-              </style>
-              <h1>Iniciar Sesión</h1>
-              <form class="loginForm" id="loginForm">
-                <div class="form-group">
-                  <label for="user">Usuario:</label>
-                  <input class="form-control contactInput" type="text" id="user" name="pass" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="pass">Contraseña</label>
-                  <input class="form-control contactInput" type="password" id="pass" name="pass" required>
-                </div>
-                <br>
-
-                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                <p>¿No tienes cuenta aún? | <a href="{% url 'registro' %}">Regístrate</a></p>
-
-              </form>
-            </div>
+          <div class="form-group">
+            <label for="pass">Contraseña</label>
+            <input class="form-control contactInput" type="password" id="pass" name="pass" required>
           </div>
+          <br>
 
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-          <script>
-            // Ventana modal
-            var modal = document.getElementById("ventanaModal");
+          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          <p>¿No tienes cuenta aún? | <a href="{% url 'registro' %}">Regístrate</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 
-            // Botón que abre el modal
-            var boton = document.getElementById("abrirModal");
+  <!-- Fin Ventana Modal -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h5>Información</h5>
+          <ul>
+            <li><a href="{% url 'aboutus' %}" style="text-decoration: none; color: inherit;">Nosotros</a></li>
+            <li><a href="{% url 'contacto' %}" style="text-decoration: none; color: inherit;">Contáctanos</a></li>
+            <li><a href="{% url 'catalogo' %}" style="text-decoration: none; color: inherit;">Catálogo</a></li>
+          </ul>
+          <p>&copy; 2024 Distribuidora Carmen López | <a href="app/contacto.html"
+              style="text-decoration: none; color: inherit;">Contáctanos</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-            // Hace referencia al elemento <span> que tiene la X que cierra la ventana
-            var span = document.getElementsByClassName("close")[0];
 
-            // Cuando el usuario hace click en el botón, se abre la ventana
-            boton.addEventListener("click", function () {
-              modal.style.display = "block";
-            });
 
-            // Si el usuario hace click en la x, la ventana se cierra
-            span.addEventListener("click", function () {
-              modal.style.display = "none";
-            });
 
-            // Si el usuario hace click fuera de la ventana, se cierra.
-            window.addEventListener("click", function (event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            });
-          </script>
+  <!-- Scripts -->
+  <script>
+    function iniciarMap() {
+      var coord = { lat: -33.0092618, lng: -71.5425126 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 50,
+        center: coord
+      });
+      var marker = new google.maps.Marker({
+        position: coord,
+        map: map
+      });
+    }
+  </script>
 
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Ventana modal
+    var modal = document.getElementById("ventanaModal");
+
+    // Botón que abre el modal
+    var boton = document.getElementById("abrirModal");
+
+    // Hace referencia al elemento <span> que tiene la X que cierra la ventana
+    var span = document.getElementsByClassName("close")[0];
+
+    // Cuando el usuario hace click en el botón, se abre la ventana
+    boton.addEventListener("click", function () {
+      modal.style.display = "block";
+    });
+
+    // Si el usuario hace click en la x, la ventana se cierra
+    span.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    // Si el usuario hace click fuera de la ventana, se cierra.
+    window.addEventListener("click", function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
+
+      if ("IntersectionObserver" in window) {
+        var lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove("lazy");
+              lazyImageObserver.unobserve(lazyImage);
+
+              // Agrega la clase 'loaded' para activar la transición suave
+              lazyImage.classList.add("loaded");
+            }
+          });
+        });
+
+        lazyImages.forEach(function (lazyImage) {
+          lazyImageObserver.observe(lazyImage);
+        });
+      } else {
+        // Polyfill o alternativa para navegadores que no soportan IntersectionObserver
+        // Puedes cargar las imágenes de forma estándar para estos navegadores
+        lazyImages.forEach(function (lazyImage) {
+          lazyImage.src = lazyImage.dataset.src;
+        });
+      }
+    });
+  </script>
+
+  <!-- Carga de librerías de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin=""></script>
+  <script src="{% static 'js/javascript.js' %}"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
 </body>
+
 
 
 
