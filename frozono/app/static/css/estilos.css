@@ -1,9 +1,8 @@
-
 body {
   margin-top: 56px;
 }
 
-.material-symbols-outlined
+
 /* Estilos generales */
 
 body section {
@@ -56,7 +55,8 @@ body {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
+  border-radius: 5px;
+  /* 5px rounded corners */
   overflow: hidden;
 }
 
@@ -81,6 +81,7 @@ body {
   background-color: #0056b3;
   border-color: #0056b3;
 }
+
 .card-img-top {
   width: 100%;
   height: 200px;
@@ -100,48 +101,66 @@ body {
 }
 
 .footer {
-  background-color: #3b553c; /* Color de fondo personalizado */
-  color: #fff; /* Texto en color blanco */
-  padding: 20px 0; /* Relleno superior e inferior */
+  background-color: #3b553c;
+  /* Color de fondo personalizado */
+  color: #fff;
+  /* Texto en color blanco */
+  padding: 20px 0;
+  /* Relleno superior e inferior */
 }
 
 .footer-logo {
-  max-width: 150px; /* Tamaño máximo del logo */
+  max-width: 150px;
+  /* Tamaño máximo del logo */
 }
 
 .footer h5 {
-  margin-bottom: 20px; /* Espacio debajo de los títulos */
+  margin-bottom: 20px;
+  /* Espacio debajo de los títulos */
 }
 
 .footer ul {
-  list-style-type: none; /* Remover viñetas de la lista */
-  padding-left: 0; /* Remover relleno izquierdo */
+  list-style-type: none;
+  /* Remover viñetas de la lista */
+  padding-left: 0;
+  /* Remover relleno izquierdo */
 }
 
 .footer-link {
-  color: #dcdcdc; /* Color de los enlaces */
-  text-decoration: none; /* Sin subrayado */
-  transition: color 0.3s; /* Transición suave de color */
+  color: #dcdcdc;
+  /* Color de los enlaces */
+  text-decoration: none;
+  /* Sin subrayado */
+  transition: color 0.3s;
+  /* Transición suave de color */
 }
 
 .footer-link:hover {
-  color: #ffffff; /* Color de enlace al pasar el mouse */
-  text-decoration: underline; /* Subrayado al pasar el mouse */
+  color: #ffffff;
+  /* Color de enlace al pasar el mouse */
+  text-decoration: underline;
+  /* Subrayado al pasar el mouse */
 }
 
 .social-icons {
-  margin-top: 20px; /* Espacio encima de los iconos sociales */
+  margin-top: 20px;
+  /* Espacio encima de los iconos sociales */
 }
 
 .social-icon {
-  display: inline-block; /* Mostrar iconos en línea */
-  margin-right: 10px; /* Espacio entre iconos */
-  color: #fff; /* Color de los iconos */
-  font-size: 24px; /* Tamaño de los iconos */
+  display: inline-block;
+  /* Mostrar iconos en línea */
+  margin-right: 10px;
+  /* Espacio entre iconos */
+  color: #fff;
+  /* Color de los iconos */
+  font-size: 24px;
+  /* Tamaño de los iconos */
 }
 
 .social-icon:hover {
-  color: #dcdcdc; /* Color de icono al pasar el mouse */
+  color: #dcdcdc;
+  /* Color de icono al pasar el mouse */
 }
 
 /* Estilos para el navbar */
@@ -244,28 +263,42 @@ body {
 }
 
 .modal {
-  display: none; /* Ocultar la modal inicialmente */
-  position: fixed; /* Posición fija en la pantalla */
-  z-index: 1; /* Asegurar que se muestre por encima de otros elementos */
+  display: none;
+  /* Ocultar la modal inicialmente */
+  position: fixed;
+  /* Posición fija en la pantalla */
+  z-index: 1;
+  /* Asegurar que se muestre por encima de otros elementos */
   left: 0;
   top: 0;
-  width: 100%; /* Ancho total de la ventana */
-  height: 100%; /* Altura total de la ventana */
-  overflow: auto; /* Permitir desplazamiento si es necesario */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-  display: flex; /* Usar Flexbox para centrar */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: center; /* Centrar horizontalmente */
+  width: 100%;
+  /* Ancho total de la ventana */
+  height: 100%;
+  /* Altura total de la ventana */
+  overflow: auto;
+  /* Permitir desplazamiento si es necesario */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  display: flex;
+  /* Usar Flexbox para centrar */
+  align-items: center;
+  /* Centrar verticalmente */
+  justify-content: center;
+  /* Centrar horizontalmente */
   opacity: 0;
 }
 
 .contenido-modal {
   background-color: white;
-  margin: auto; /* Centrado automático */
+  margin: auto;
+  /* Centrado automático */
   padding: 20px;
-  width: 30%; /* Ancho del contenido más adecuado para el login */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para la modal */
-  border-radius: 5px; /* Bordes redondeados */
+  width: 30%;
+  /* Ancho del contenido más adecuado para el login */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Sombra para la modal */
+  border-radius: 5px;
+  /* Bordes redondeados */
 }
 
 /* Animación para que la modal 'caiga' desde arriba */
@@ -274,6 +307,7 @@ body {
     top: -300px;
     opacity: 0;
   }
+
   to {
     top: 0;
     opacity: 1;
@@ -321,6 +355,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
 @media (min-width: 576px) {
   .carousel-text {
     font-size: 2rem;
@@ -363,7 +398,8 @@ a:hover {
 .table-nutritional td {
   padding: 8px;
   text-align: left;
-  border: 1px solid black; /* Borde en todas las celdas */
+  border: 1px solid black;
+  /* Borde en todas las celdas */
 }
 
 .table-nutritional th {
@@ -401,9 +437,11 @@ a:hover {
 .table-title {
   font-weight: bold;
 }
+
 /* Reducir el espacio superior del navbar */
 .navbar {
-  margin-bottom: 0 !important; /* Elimina el margen inferior del navbar */
+  margin-bottom: 0 !important;
+  /* Elimina el margen inferior del navbar */
 }
 
 .wsp-btn {
@@ -417,6 +455,7 @@ a:hover {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
 .wsp-btn {
   background: var(--background);
   display: inline-flex;
@@ -427,9 +466,11 @@ a:hover {
   right: 10px;
   bottom: 10px;
 }
+
 .wsp-btn:hover {
   background: var(--background-hover);
 }
+
 .wsp-btn::after {
   font-family: Lato, sans-serif;
   content: attr(cta);
@@ -446,10 +487,12 @@ a:hover {
   opacity: 0;
   transition: ease all 0.3s;
 }
+
 .wsp-btn:hover:after {
   opacity: 1;
   transform: translatex(0px);
 }
+
 .wsp-btn::before {
   content: var(--icon);
   display: block;
@@ -492,9 +535,11 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100%; /* Ajusta el ancho según tus necesidades */
+  width: 100%;
+  /* Ajusta el ancho según tus necesidades */
   max-width: 300px;
-  height: 300px; /* Ajusta la altura según tus necesidades */
+  height: 300px;
+  /* Ajusta la altura según tus necesidades */
   margin: 15px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -545,7 +590,8 @@ a:hover {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #f5a100; /* Color de la página Huevotama */
+  background-color: #f5a100;
+  /* Color de la página Huevotama */
   color: white;
   border: none;
   border-radius: 4px;
@@ -557,8 +603,10 @@ a:hover {
 }
 
 .btn-comprar:hover {
-  background-color: #aa6e00; /* Color de fondo al pasar el mouse */
+  background-color: #aa6e00;
+  /* Color de fondo al pasar el mouse */
 }
+
 .product-list-container::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -597,16 +645,21 @@ a:hover {
 
 
 .product-details h3 {
-  font-size: 1.2rem; /* Tamaño de fuente */
-  margin-bottom: 10px; /* Espaciado inferior */
+  font-size: 1.2rem;
+  /* Tamaño de fuente */
+  margin-bottom: 10px;
+  /* Espaciado inferior */
   margin-top: 7px;
 }
 
 .product-details p {
-  margin-bottom: 10px; /* Espaciado inferior */
+  margin-bottom: 10px;
+  /* Espaciado inferior */
 }
 
 .product-details .price {
-  font-weight: bold; /* Texto en negrita */
-  color: #898121; /* Color de precio */
+  font-weight: bold;
+  /* Texto en negrita */
+  color: #898121;
+  /* Color de precio */
 }
