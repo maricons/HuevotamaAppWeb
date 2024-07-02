@@ -16,7 +16,7 @@
     }
   </style>
 
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,14 +59,23 @@
             <a class="nav-link" href="{% url 'aboutus' %}">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'contacto' %}">Cont&aacute;ctanos
-            </a>
+            <a class="nav-link" href="{% url 'contacto' %}">Contáctanos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'producto_list_html' %}">ADMIN</a>
           </li>
         </ul>
       </div>
       <!-- Utiliza "d-flex" para alinear elementos en línea -->
       <div class="d-flex">
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <!-- Mostrar mensaje de bienvenida y nombre de usuario -->
+            <p class="nav-item" id="welcomeMessage">Bienvenido <span id="usernameSpan"></span></p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'salir' %}">Cerrar Sesion</a>
+          </li>
           <li class="nav-item">
             <a id="abrirModal" class="nav-link" href="#" onclick="abrirModal();">
               <span class="material-symbols-outlined" style="color: #1E321F;">
@@ -81,11 +90,11 @@
               </span>
             </a>
           </li>
-
         </ul>
       </div>
     </div>
   </nav>
+
   <!--Fin de Navbar-->
 
   <!-- Carrusel -->
@@ -336,23 +345,32 @@
     <div class="contenido-modal">
       <span class="close" onclick="cerrarModal()">&times;</span>
       <h1 style="text-align: center;">Iniciar Sesión</h1>
-      <form class="loginForm" id="loginForm">
-        <!-- Campos del formulario -->
-        <div class="form-group">
-          <label for="user">Usuario:</label>
-          <input class="form-control contactInput" type="text" id="user" name="user" required>
-        </div>
-        <div class="form-group">
-          <label for="pass">Contraseña:</label>
-          <input class="form-control contactInput" type="password" id="pass" name="pass" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+
+      <div id="alert-success" class="alert alert-success" style="display: none;">
+        Inicio de sesión exitoso.
+      </div>
+      {% if alert_success %}
+      <div class="alert alert-success">
+        Inicio de sesión exitoso.
+      </div>
+      {% endif %}
+
+      <form class="loginForm" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="username" id="usuario">
+
+        <label for="pass">Contraseña:</label>
+        <input type="password" name="password" id="pass">
+
+        <button class="btn-primary" type="submit">Iniciar Sesión</button>
+
         <p>¿No tienes cuenta aún? | <a href="{% url 'registro'%}">Regístrate</a></p>
       </form>
     </div>
   </div>
 
-  </div>
+
 
 
   <!-- Fin Ventana Modal -->
@@ -403,127 +421,141 @@
         </div>
       </div>
     </div>
+  </footer>
 
-    <!-- Scripts -->
-    <script>
-      // Función para abrir la ventana modal con lazy loading
-      function abrirModal() {
-        // Asegúrate de que la ventana modal esté oculta inicialmente y solo se muestre cuando esta función se ejecute
-        var modal = document.getElementById('ventanaModal');
-        modal.style.display = 'flex'; // Cambiar a 'flex' para activar Flexbox
-        modal.style.opacity = '0'; // Iniciar con opacidad 0 para el efecto de lazy loading
+  <!-- Scripts -->
+  <script>
+    // Función para abrir la ventana modal con lazy loading
+    function abrirModal() {
+      // Asegúrate de que la ventana modal esté oculta inicialmente y solo se muestre cuando esta función se ejecute
+      var modal = document.getElementById('ventanaModal');
+      modal.style.display = 'flex'; // Cambiar a 'flex' para activar Flexbox
+      modal.style.opacity = '0'; // Iniciar con opacidad 0 para el efecto de lazy loading
 
-        // Incrementar gradualmente la opacidad para el efecto de carga diferida
-        setTimeout(function () {
-          modal.style.opacity = '1';
-        }, 100); // Puedes ajustar el tiempo según prefieras
+      // Incrementar gradualmente la opacidad para el efecto de carga diferida
+      setTimeout(function () {
+        modal.style.opacity = '1';
+      }, 100); // Puedes ajustar el tiempo según prefieras
+    }
+
+    // Función para cerrar la ventana modal
+    function cerrarModal() {
+      var modal = document.getElementById('ventanaModal');
+      modal.style.display = 'none';
+    }
+
+    // Evento para cerrar la modal si se hace clic fuera de ella
+    window.onclick = function (event) {
+      var modal = document.getElementById('ventanaModal');
+      if (event.target == modal) {
+        cerrarModal();
       }
+    }
+  </script>
 
-      // Función para cerrar la ventana modal
-      function cerrarModal() {
-        var modal = document.getElementById('ventanaModal');
-        modal.style.display = 'none';
-      }
-
-      // Evento para cerrar la modal si se hace clic fuera de ella
-      window.onclick = function (event) {
-        var modal = document.getElementById('ventanaModal');
-        if (event.target == modal) {
-          cerrarModal();
-        }
-      }
-    </script>
-
-    <script>
-      function iniciarMap() {
-        var coord = { lat: -33.0092618, lng: -71.5425126 };
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: coord
-        });
-        var marker = new google.maps.Marker({
-          position: coord,
-          map: map
-        });
-      }
-    </script>
-
-
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
-
-        if ("IntersectionObserver" in window) {
-          var lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                var lazyImage = entry.target;
-                lazyImage.src = lazyImage.dataset.src;
-                lazyImage.classList.remove("lazy");
-                lazyImageObserver.unobserve(lazyImage);
-
-                // Agrega la clase 'loaded' para activar la transición suave
-                lazyImage.classList.add("loaded");
-              }
-            });
-          });
-
-          lazyImages.forEach(function (lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-          });
-        } else {
-          // Polyfill o alternativa para navegadores que no soportan IntersectionObserver
-          // Puedes cargar las imágenes de forma estándar para estos navegadores
-          lazyImages.forEach(function (lazyImage) {
-            lazyImage.src = lazyImage.dataset.src;
-          });
-        }
+  <script>
+    function iniciarMap() {
+      var coord = { lat: -33.0092618, lng: -71.5425126 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: coord
       });
-    </script>
-
-
-    <script>
-      // cards con slider
-      document.addEventListener("DOMContentLoaded", function () {
-        const scrollRight = document.getElementById("scrollRight");
-        const scrollLeft = document.getElementById("scrollLeft");
-        const productListContainer = document.querySelector(".product-list-container");
-
-        console.log("Initial Scroll Left:", productListContainer.scrollLeft);
-
-        scrollRight.addEventListener("click", function () {
-          console.log("Clicked right!");
-          productListContainer.scrollBy({
-            top: 0,
-            left: 620,
-            behavior: 'smooth'
-          });
-          console.log("Scroll Left After:", productListContainer.scrollLeft);
-        });
-
-        scrollLeft.addEventListener("click", function () {
-          console.log("Clicked left!");
-          productListContainer.scrollBy({
-            top: 0,
-            left: -620, // Cambia este valor según tu necesidad
-            behavior: 'smooth'
-          });
-          console.log("Scroll Left After:", productListContainer.scrollLeft);
-        });
+      var marker = new google.maps.Marker({
+        position: coord,
+        map: map
       });
-    </script>
+    }
+  </script>
 
-    <!-- Carga de librerías de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin=""></script>
-    <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
-   
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
+
+      if ("IntersectionObserver" in window) {
+        var lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove("lazy");
+              lazyImageObserver.unobserve(lazyImage);
+
+              // Agrega la clase 'loaded' para activar la transición suave
+              lazyImage.classList.add("loaded");
+            }
+          });
+        });
+
+        lazyImages.forEach(function (lazyImage) {
+          lazyImageObserver.observe(lazyImage);
+        });
+      } else {
+        // Polyfill o alternativa para navegadores que no soportan IntersectionObserver
+        // Puedes cargar las imágenes de forma estándar para estos navegadores
+        lazyImages.forEach(function (lazyImage) {
+          lazyImage.src = lazyImage.dataset.src;
+        });
+      }
+    });
+  </script>
+
+
+  <script>
+    // cards con slider
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollRight = document.getElementById("scrollRight");
+      const scrollLeft = document.getElementById("scrollLeft");
+      const productListContainer = document.querySelector(".product-list-container");
+
+      console.log("Initial Scroll Left:", productListContainer.scrollLeft);
+
+      scrollRight.addEventListener("click", function () {
+        console.log("Clicked right!");
+        productListContainer.scrollBy({
+          top: 0,
+          left: 620,
+          behavior: 'smooth'
+        });
+        console.log("Scroll Left After:", productListContainer.scrollLeft);
+      });
+
+      scrollLeft.addEventListener("click", function () {
+        console.log("Clicked left!");
+        productListContainer.scrollBy({
+          top: 0,
+          left: -620, // Cambia este valor según tu necesidad
+          behavior: 'smooth'
+        });
+        console.log("Scroll Left After:", productListContainer.scrollLeft);
+      });
+    });
+  </script>
+  <script>
+    // Obtener el nombre de usuario del backend (puedes pasarlo desde Django)
+
+    // Simular el nombre de usuario para demostración
+    var username = "{{ request.user.username }}";
+
+    // Si hay un usuario logueado, mostrar el mensaje de bienvenida y el nombre de usuario
+    if (username) {
+      document.getElementById('welcomeMessage').style.display = 'block';
+      document.getElementById('usernameSpan').innerText = username;
+    } else {
+      document.getElementById('welcomeMessage').style.display = 'none';
+    }
+  </script>
+  <!-- Carga de librerías de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin=""></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+
 </body>
 
 

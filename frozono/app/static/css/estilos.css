@@ -250,6 +250,55 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px; /* Espacio desde la parte superior */
+}
+
+.loginForm label {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px; /* Espacio entre etiquetas */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+.loginForm input {
+  width: 100%; /* Ancho completo del input */
+  padding: 8px; /* Espacio interno */
+  margin-bottom: 15px; /* Espacio entre inputs */
+  border: 1px solid #ccc; /* Borde del input */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+.loginForm button {
+  width: 100%; /* Ancho completo del botón */
+  padding: 10px; /* Espacio interno del botón */
+  border: none; /* Sin borde */
+  background-color: #007bff; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  font-size: 1rem; /* Tamaño de fuente */
+  cursor: pointer; /* Cursor tipo pointer */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.loginForm button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos para el mensaje de bienvenida */
+.welcome-message {
+  display: none; /* Por defecto oculto */
+  color: #000000; /* Color del texto */
+  font-size: 1rem; /* Tamaño de fuente */
+  margin-right: 15px; /* Margen derecho */
+  padding-top: 5px;
+}
+
+/* Ajuste en el tamaño del nombre de usuario en el navbar */
+.navbar-nav .nav-link.username {
+  max-width: 200px; /* Ancho máximo del nombre de usuario */
+  overflow: hidden; /* Oculta el contenido que sobrepasa el ancho */
+  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
+  white-space: nowrap; /* No permite saltos de línea */
 }
 
 .btn-primary {
