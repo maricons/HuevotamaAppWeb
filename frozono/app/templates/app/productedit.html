@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Estilo personalizado para quitar los puntos de las viñetas */
+        ul {
+            list-style-type: none;
+            /* Elimina los puntos de las viñetas */
+        }
+    </style>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,537;1,537&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'img/site.webmanifest'%}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <title>Huevos Gallina Campo | CarmenLopezDistribuidora.cl </title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img data-src="{% static 'img/logo2.png' %}" alt="logo" width="60" href="{% url 'home' %}">
+                CarmenLópez</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <!-- Utiliza "d-flex" para alinear elementos en línea -->
+            <div class="d-flex">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- Mostrar mensaje de bienvenida y nombre de usuario -->
+                        <p class="nav-item" id="welcomeMessage">Bienvenido <span id="usernameSpan"></span></p>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="abrirModal" class="nav-link" href="#" onclick="abrirModal();">
+                            <span class="material-symbols-outlined" style="color: #1E321F;">
+                                person
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'aboutus' %}" class="nav-link">
+                            <span class="material-symbols-outlined" style="color: #1E321F;">
+                                shopping_cart
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Fin de Navbar-->
+
+    <!-- Contenido -->
+    <div class="container">
+        <div class="p-5">
+            <h1 class="fw-bold">Editar Productos</h1>
+
+        </div>
+        <form action="" method="post" class="mt-5 mx-auto" style="max-width: 320px;" novalidate>
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="text-end mt-3">
+                <a href="{% url 'productlist' %}" class="btn btn-light me-1">
+                    Cancelar
+                </a>
+                <button class="btn btn-primary">
+                    Actualizar Producto
+                </button>
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+
+    <!-- contenido -->
+
+
+    <!-- Ventana Modal -->
+    <div id="ventanaModal" class="modal">
+        <div class="contenido-modal">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h1 style="text-align: center;">Iniciar Sesión</h1>
+
+            <div id="alert-success" class="alert alert-success" style="display: none;">
+                Inicio de sesión exitoso.
+            </div>
+            {% if alert_success %}
+            <div class="alert alert-success">
+                Inicio de sesión exitoso.
+            </div>
+            {% endif %}
+
+            <form class="loginForm" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="username" id="usuario">
+
+                <label for="pass">Contraseña:</label>
+                <input type="password" name="password" id="pass">
+
+                <button class="btn-primary" type="submit">Iniciar Sesión</button>
+
+                <p>¿No tienes cuenta aún? | <a href="{% url 'registro'%}">Regístrate</a></p>
+            </form>
+        </div>
+    </div>
+
+
+
+    <br><br /><br><br />
+    <!-- Fin Ventana Modal -->
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Sección del logo y sobre nosotros -->
+                <div class="row">
+                    <div class="col-md-4 mb-3 d-flex align-items-end">
+                        <img data-src="{% static 'img/logo2.png' %}" alt="Logo" class="footer-logo mb-2">
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <p style="text-align: justify"> <br>"Desde el corazón de Viña del Mar, la Distribuidora de
+                            Huevos Carmen
+                            López se enorgullece de ser su proveedor de huevos frescos y de calidad desde 1960. Nuestra
+                            misión es
+                            nutrir a las familias con lo mejor de la granja directamente a su hogar, garantizando
+                            siempre frescura y
+                            sabor en cada huevo. Contamos con clientes fieles que han confiado en nosotros durante
+                            décadas,
+                            respaldando así nuestro negocio consolidado."</p>
+                    </div>
+                </div>
+
+                <!-- Sección de enlaces rápidos -->
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h5 class="text-uppercase mb-4">Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="footer-link">Nosotros</a></li>
+                            <li><a href="#" class="footer-link">Servicios</a></li>
+                            <li><a href="#" class="footer-link">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección de contacto y redes sociales -->
+                    <div class="col-md-4 mb-3">
+                        <h5 class="text-uppercase mb-4">Contacto</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="tel:+56322972805" class="footer-link">+56 3 2 2972805</a></li>
+                            <li><a href="mailto:contacto@empresa.com"
+                                    class="footer-link">CarmenLopez@Distribuidora.cl</a></li>
+                        </ul>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/distribuidoradehuevoscarmenlopez/" class="social-icon"
+                                target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://wa.me/c/56938946675" class="social-icon" target="_blank"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/distribuidora_carmenlopez/" class="social-icon"
+                                target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script>
+        // Obtener el nombre de usuario del backend (puedes pasarlo desde Django)
+
+        // Simular el nombre de usuario para demostración
+        var username = "{{ request.user.username }}";
+
+        // Si hay un usuario logueado, mostrar el mensaje de bienvenida y el nombre de usuario
+        if (username) {
+            document.getElementById('welcomeMessage').style.display = 'block';
+            document.getElementById('usernameSpan').innerText = username;
+        } else {
+            document.getElementById('welcomeMessage').style.display = 'none';
+        }
+    </script>
+
+    <!-- Carga de librerías de Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -78,53 +78,22 @@
         </div>
     </nav>
 
-    <!-- Título "Catálogo" con margen superior -->
     <div class="container mt-3 pt-3">
         <h1 class="text-center mb-4">Catálogo</h1>
         <div class="row">
+            {% for productos in object_list %}
             <div class="col-md-6 col-lg-3 mb-3">
                 <div class="card">
-                    <img class="card-img-top" src="{% static 'img/30 GOLD RANGERS - PRODUCTDETAIL.webp' %}" alt="Huevo Extra Color">
+                    <img class="card-img-top" src="{% static 'img/' %}{{ producto.imagen }}" alt="{{ producto.nombre }}">
                     <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">30 unidades</p>
-                        <p class="card-text">$8490</p>
+                        <h5 class="card-title">{{ productos.nombre }}</h5>
+                        <p class="card-text">{{ productos.descripcion }}</p>
+                        <p class="card-text">${{ productos.precio }}</p>
+                        <a href="" class="btn btn-primary">Ver Detalles</a>
                     </div>
                 </div>
             </div>
-    
-            <div class="col-md-6 col-lg-3 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{% static 'img/60 GOLD RANGERS.jpeg' %}" alt="Huevo Color">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Color</h5>
-                        <p class="card-text">60 unidades</p>
-                        <p class="card-text">$18.600</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-3 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{% static 'img/90 GOLD RANGERS.webp' %}" alt="Huevo Extra Color">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Extra Color</h5>
-                        <p class="card-text">90 unidades</p>
-                        <p class="card-text">$22.990</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-3 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{% static 'img/120 GOLD RANGERS.webp' %}" alt="Huevo Jumbo Color">
-                    <div class="card-body">
-                        <h5 class="card-title">Huevo Jumbo Color</h5>
-                        <p class="card-text">90 unidades</p>
-                        <p class="card-text">$29.990</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <!-- Ventana Modal -->

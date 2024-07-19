@@ -1,19 +1,46 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Producto, Categoria
-from django.views.generic import View 
+from .models import Producto, Categoria, Cart, CartItem
+from django.contrib.auth.decorators import login_required
+
 from .forms import ProductoForm, CategoriaForm
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # Create your views here.
 def home(request):
-    return render(request, 'app/home.html', {})
+    productos = Producto.objects.all()
+    return render(request, 'app/home.html', {'object_list': productos})
+
+def productlist(request):
+    productos = Producto.objects.all()
+    return render(request, 'app/productlist.html',  {'object_list': productos})
+
+class ProductCreateView(CreateView):
+    model = Producto
+    fields = ['nombre', 'descripcion', 'precio', 'categoria', 'stock']
+    template_name = 'app/productcreate.html'
+    success_url = '/app/productlist.html' # Redirige a la lista de productos después de crear uno nuevo
+
+class ProductUpdateView(UpdateView):
+    model = Producto
+    fields = ['nombre', 'descripcion', 'precio', 'categoria', 'stock']
+    template_name = 'app/productedit.html'
+    success_url = '/app/productlist.html' # Redirige a la lista de productos después de crear uno nuevo
+
+class ProductDeleteView(DeleteView):
+    model = Producto
+    success_url = '/app/productlist.html' # Redirige a la lista de productos después de crear uno nuevo   
+
+class ProductListView(CreateView):
+    model = Producto
 
 def contacto(request):
     return render(request, 'app/contacto.html', {})
 
 def catalogo(request):
-    return render(request, 'app/catalogo.html', {})
+    productos = Producto.objects.all( )
+    return render(request, 'app/catalogo.html', {'object_list': productos})
 
 def login(request):
     return render(request, 'app/login.html', {})
@@ -27,69 +54,6 @@ def registro(request):
 def aboutus(request):
     return render(request, 'app/aboutus.html', {})
 
-
-@login_required
-def producto_list_html(request):
-    return render(request, 'app/producto_list.html', {})
-    
-
-class ProductoListView(View):
-    def get(self, request):
-        productos = Producto.objects.all()
-        form = ProductoForm
-        return render(request, 'app/producto_list.html', {'productos': productos, 'form': form})
-
-class ProductoCreateView(View):
-    def post(self, request):
-        form = ProductoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('producto_list')
-        return render(request, 'app/producto_list.html', {'form': form, 'productos': Producto.objects.all()})
-
-class ProductoUpdateView(View):
-    def post(self, request, pk):
-        producto = get_object_or_404(Producto, pk=pk)
-        form = ProductoForm(request.POST, request.FILES, instance=producto)
-        if form.is_valid():
-            form.save()
-            return redirect('producto_list')
-        return render(request, 'app/producto_list.html', {'form': form, 'productos': Producto.objects.all()})
-
-class ProductoDeleteView(View):
-    def post(self, request, pk):
-        producto = get_object_or_404(Producto, pk=pk)
-        producto.delete()
-        return redirect('producto_list')
-
-#class CategoriaListView(View):
- #   def get(self, request):
-  #      categorias = Categoria.objects.all()
-   #     form = CategoriaForm()
-    #    return render(request, 'categorias/categoria_list.html', {'categorias': categorias, 'form': form})
-
-#class CategoriaCreateView(View):
- #   def post(self, request):
-  #      form = CategoriaForm(request.POST)
-   #     if form.is_valid():
-    #        form.save()
-     #       return redirect('categoria_list')
-      #  return render(request, 'categorias/categoria_list.html', {'form': form, 'categorias': Categoria.objects.all()})
-
-#class CategoriaUpdateView(View):
- #   def post(self, request, pk):
-  #      categoria = get_object_or_404(Categoria, pk=pk)
-   #     form = CategoriaForm(request.POST, instance=categoria)
-    #    if form.is_valid():
-     #       form.save()
-      #      return redirect('categoria_list')
-       # return render(request, 'categorias/categoria_list.html', {'form': form, 'categorias': Categoria.objects.all()})
-
-#class CategoriaDeleteView(View):
- #   def post(self, request, pk):
-  #      categoria = get_object_or_404(Categoria, pk=pk)
-   #     categoria.delete()
-    #    return redirect('categoria_list')
 
 def login_view(request):
     if request.method == 'POST':
@@ -117,7 +81,3 @@ def profile_view(request):
 
     # Renderizar el template del perfil con los datos del usuario
     return render(request, 'app/profile.html', {'user': user})    
-
-def salir(request):
-    logout(request)
-    return redirect('/')

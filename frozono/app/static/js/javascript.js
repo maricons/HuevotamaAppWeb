@@ -11,3 +11,4 @@ function iniciarMap(){
       map: map
     });
 }
+
