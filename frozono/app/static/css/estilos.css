@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
 body {
   margin-top: 56px;
 }
@@ -431,7 +434,6 @@ a:hover {
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
 
 #map {
   height: 500px;
@@ -503,7 +505,6 @@ a:hover {
   --tooltip-background: #f3f3f3;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
 .wsp-btn {
   background: var(--background);

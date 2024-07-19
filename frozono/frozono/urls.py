@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 from app import views
-from app.views import ProductoListView, ProductoCreateView, ProductoUpdateView, ProductoDeleteView
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -31,20 +32,13 @@ urlpatterns = [
     path('app/productdetail.html', views.productdetail, name='productdetail'),
     path('app/registro.html', views.registro, name='registro'),
     path('app/aboutus.html', views.aboutus, name='aboutus'),
-    path('app/producto_list.html', views.producto_list_html, name='producto_list_html'),
-    path('app/', ProductoListView.as_view(), name='producto_list'),  # Ruta para listar productos
-    path('app/create/', ProductoCreateView.as_view(), name='producto_create'),  # Ruta para crear producto
-    path('app/update/<int:pk>/', ProductoUpdateView.as_view(), name='producto_update'),  # Ruta para actualizar producto
-    path('app/delete/<int:pk>/', ProductoDeleteView.as_view(), name='producto_delete'),  # Ruta para eliminar producto
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/', views.profile_view, name='profile'),
     path('accounts/login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('accounts/logout/', LogoutView.as_view(next_page='app/contacto.html'), name='logout'),
-    path('salir', views.salir, name='salir')
-    # Rutas para categorías (descomentar y ajustar según necesidad)
-    # path('categorias/', CategoriaListView.as_view(), name='categoria_list'),
-    # path('categorias/create/', CategoriaCreateView.as_view(), name='categoria_create'),
-    # path('categorias/update/<int:pk>/', CategoriaUpdateView.as_view(), name='categoria_update'),
-    # path('categorias/delete/<int:pk>/', CategoriaDeleteView.as_view(), name='categoria_delete'),
+    path('app/productlist.html', views.productlist, name='productlist'),
+    path('app/productcreate.html', views.ProductCreateView.as_view(), name='productcreate'),
+    path('app/<int:pk>/edit/', views.ProductUpdateView.as_view(), name='productedit'),
+    path('app/<int:pk>/delete/', views.ProductDeleteView.as_view(), name='productdelete'), 
 ]
 
